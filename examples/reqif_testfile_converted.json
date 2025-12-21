@@ -1,0 +1,1345 @@
+[
+  {
+    "identifier": "_3b082e25-3933-4958-9433-fc971f835440",
+    "long_name": "REQ",
+    "last_change": "2024-07-03T09:05:56.840Z",
+    "hierarchy": [
+      {
+        "identifier": "_95387be2-f3fb-46d7-9356-f77cee99b05c",
+        "spec_object_ref": "_60cfd00e-896d-404a-b7b7-d7f8a723c366",
+        "level": 1,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "2",
+          "ReqIF.ChapterName": "The XXXXX shall XXXXX",
+          "origID": "REQ-300"
+        },
+        "spec_object_identifier": "_60cfd00e-896d-404a-b7b7-d7f8a723c366",
+        "children": [
+          {
+            "identifier": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
+            "spec_object_ref": "_aed8c9c9-ea58-4eda-8e83-e0d495a93dc5",
+            "level": 2,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "3",
+              "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+              "origID": "REQ-300-1"
+            },
+            "spec_object_identifier": "_aed8c9c9-ea58-4eda-8e83-e0d495a93dc5",
+            "children": [
+              {
+                "identifier": "_6a021d35-25b9-4777-981c-c46ea170a249",
+                "spec_object_ref": "_d61974fa-ee94-4448-8e1a-db9597741291",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "4",
+                  "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+                  "origID": "REQ-300-1-1"
+                },
+                "spec_object_identifier": "_d61974fa-ee94-4448-8e1a-db9597741291"
+              },
+              {
+                "identifier": "_67788b14-e8c2-4829-994c-857075ef66e3",
+                "spec_object_ref": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "5",
+                  "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+                  "origID": "REQ-300-1-2"
+                },
+                "spec_object_identifier": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+                "children": [
+                  {
+                    "identifier": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
+                    "spec_object_ref": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "6",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-2-1"
+                    },
+                    "spec_object_identifier": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d"
+                  },
+                  {
+                    "identifier": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
+                    "spec_object_ref": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "7",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-2-2"
+                    },
+                    "spec_object_identifier": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3"
+                  },
+                  {
+                    "identifier": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
+                    "spec_object_ref": "_cb920962-bbbe-4eef-8137-106d8de2a4c5",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "8",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-2-3"
+                    },
+                    "spec_object_identifier": "_cb920962-bbbe-4eef-8137-106d8de2a4c5"
+                  }
+                ]
+              },
+              {
+                "identifier": "_1cde7f26-5761-4372-b828-ea6878f0a226",
+                "spec_object_ref": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "9",
+                  "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+                  "origID": "REQ-300-1-3"
+                },
+                "spec_object_identifier": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+                "children": [
+                  {
+                    "identifier": "_10a336c6-881b-4a24-bbdb-251fb8621867",
+                    "spec_object_ref": "_a76f4db7-2dda-439b-8113-8bac93dc837d",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "10",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-3-1"
+                    },
+                    "spec_object_identifier": "_a76f4db7-2dda-439b-8113-8bac93dc837d"
+                  },
+                  {
+                    "identifier": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
+                    "spec_object_ref": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "11",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-3-2"
+                    },
+                    "spec_object_identifier": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a"
+                  }
+                ]
+              },
+              {
+                "identifier": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
+                "spec_object_ref": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "12",
+                  "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+                  "origID": "REQ-300-1-4"
+                },
+                "spec_object_identifier": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+                "children": [
+                  {
+                    "identifier": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
+                    "spec_object_ref": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "13",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-4-1"
+                    },
+                    "spec_object_identifier": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df"
+                  },
+                  {
+                    "identifier": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
+                    "spec_object_ref": "_34d20565-21fd-412a-9313-5a86dd271c42",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "14",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-4-2"
+                    },
+                    "spec_object_identifier": "_34d20565-21fd-412a-9313-5a86dd271c42"
+                  }
+                ]
+              },
+              {
+                "identifier": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
+                "spec_object_ref": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "15",
+                  "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+                  "origID": "REQ-300-1-5"
+                },
+                "spec_object_identifier": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+                "children": [
+                  {
+                    "identifier": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
+                    "spec_object_ref": "_3d039718-d8de-40d9-ad09-55362e75db78",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "16",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-5-1"
+                    },
+                    "spec_object_identifier": "_3d039718-d8de-40d9-ad09-55362e75db78"
+                  },
+                  {
+                    "identifier": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
+                    "spec_object_ref": "_15b27844-8aad-4cf9-a3c1-000fd74f981d",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "17",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-5-2"
+                    },
+                    "spec_object_identifier": "_15b27844-8aad-4cf9-a3c1-000fd74f981d"
+                  },
+                  {
+                    "identifier": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
+                    "spec_object_ref": "_7868d52e-1624-4b38-9693-0dfd8af08680",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "18",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-5-3"
+                    },
+                    "spec_object_identifier": "_7868d52e-1624-4b38-9693-0dfd8af08680"
+                  },
+                  {
+                    "identifier": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
+                    "spec_object_ref": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "19",
+                      "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                      "origID": "REQ-300-1-5-4"
+                    },
+                    "spec_object_identifier": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "identifier": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca",
+            "spec_object_ref": "_0fbf34f3-939a-4422-976e-ccddf3fabf86",
+            "level": 2,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "20",
+              "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+              "origID": "REQ-300-2"
+            },
+            "spec_object_identifier": "_0fbf34f3-939a-4422-976e-ccddf3fabf86",
+            "children": [
+              {
+                "identifier": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
+                "spec_object_ref": "_54083771-6137-4746-a5fb-f073ae4cc400",
+                "level": 3,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "21",
+                  "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+                  "origID": "REQ-300-2-1"
+                },
+                "spec_object_identifier": "_54083771-6137-4746-a5fb-f073ae4cc400",
+                "children": [
+                  {
+                    "identifier": "_982676bd-7470-4696-8133-e6ab54de0417",
+                    "spec_object_ref": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "22",
+                      "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+                      "origID": "REQ-300-2-1-1"
+                    },
+                    "spec_object_identifier": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+                    "children": [
+                      {
+                        "identifier": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
+                        "spec_object_ref": "_c9b49025-bd17-4251-ab4c-2e210433d5f2",
+                        "level": 5,
+                        "long_name": null,
+                        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                        "spec_object_type_name": "REQ Object Type",
+                        "last_change": "2024-07-03T09:05:56.840Z",
+                        "attributes": {
+                          "ReqIF.ForeignID": "23",
+                          "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                          "origID": "REQ-300-2-1-1-1"
+                        },
+                        "spec_object_identifier": "_c9b49025-bd17-4251-ab4c-2e210433d5f2"
+                      },
+                      {
+                        "identifier": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
+                        "spec_object_ref": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5",
+                        "level": 5,
+                        "long_name": null,
+                        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                        "spec_object_type_name": "REQ Object Type",
+                        "last_change": "2024-07-03T09:05:56.840Z",
+                        "attributes": {
+                          "ReqIF.ForeignID": "24",
+                          "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                          "origID": "REQ-300-2-1-1-2"
+                        },
+                        "spec_object_identifier": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5"
+                      }
+                    ]
+                  },
+                  {
+                    "identifier": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
+                    "spec_object_ref": "_cad4429f-0be6-496f-9630-b7fbc5136b76",
+                    "level": 4,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "25",
+                      "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+                      "origID": "REQ-300-2-1-2"
+                    },
+                    "spec_object_identifier": "_cad4429f-0be6-496f-9630-b7fbc5136b76"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "identifier": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
+        "spec_object_ref": "_aed8c9c9-ea58-4eda-8e83-e0d495a93dc5",
+        "level": 2,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "3",
+          "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+          "origID": "REQ-300-1"
+        },
+        "spec_object_identifier": "_aed8c9c9-ea58-4eda-8e83-e0d495a93dc5",
+        "children": [
+          {
+            "identifier": "_6a021d35-25b9-4777-981c-c46ea170a249",
+            "spec_object_ref": "_d61974fa-ee94-4448-8e1a-db9597741291",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "4",
+              "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+              "origID": "REQ-300-1-1"
+            },
+            "spec_object_identifier": "_d61974fa-ee94-4448-8e1a-db9597741291"
+          },
+          {
+            "identifier": "_67788b14-e8c2-4829-994c-857075ef66e3",
+            "spec_object_ref": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "5",
+              "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+              "origID": "REQ-300-1-2"
+            },
+            "spec_object_identifier": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+            "children": [
+              {
+                "identifier": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
+                "spec_object_ref": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "6",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-2-1"
+                },
+                "spec_object_identifier": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d"
+              },
+              {
+                "identifier": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
+                "spec_object_ref": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "7",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-2-2"
+                },
+                "spec_object_identifier": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3"
+              },
+              {
+                "identifier": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
+                "spec_object_ref": "_cb920962-bbbe-4eef-8137-106d8de2a4c5",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "8",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-2-3"
+                },
+                "spec_object_identifier": "_cb920962-bbbe-4eef-8137-106d8de2a4c5"
+              }
+            ]
+          },
+          {
+            "identifier": "_1cde7f26-5761-4372-b828-ea6878f0a226",
+            "spec_object_ref": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "9",
+              "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+              "origID": "REQ-300-1-3"
+            },
+            "spec_object_identifier": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+            "children": [
+              {
+                "identifier": "_10a336c6-881b-4a24-bbdb-251fb8621867",
+                "spec_object_ref": "_a76f4db7-2dda-439b-8113-8bac93dc837d",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "10",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-3-1"
+                },
+                "spec_object_identifier": "_a76f4db7-2dda-439b-8113-8bac93dc837d"
+              },
+              {
+                "identifier": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
+                "spec_object_ref": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "11",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-3-2"
+                },
+                "spec_object_identifier": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a"
+              }
+            ]
+          },
+          {
+            "identifier": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
+            "spec_object_ref": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "12",
+              "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+              "origID": "REQ-300-1-4"
+            },
+            "spec_object_identifier": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+            "children": [
+              {
+                "identifier": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
+                "spec_object_ref": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "13",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-4-1"
+                },
+                "spec_object_identifier": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df"
+              },
+              {
+                "identifier": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
+                "spec_object_ref": "_34d20565-21fd-412a-9313-5a86dd271c42",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "14",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-4-2"
+                },
+                "spec_object_identifier": "_34d20565-21fd-412a-9313-5a86dd271c42"
+              }
+            ]
+          },
+          {
+            "identifier": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
+            "spec_object_ref": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "15",
+              "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+              "origID": "REQ-300-1-5"
+            },
+            "spec_object_identifier": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+            "children": [
+              {
+                "identifier": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
+                "spec_object_ref": "_3d039718-d8de-40d9-ad09-55362e75db78",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "16",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-5-1"
+                },
+                "spec_object_identifier": "_3d039718-d8de-40d9-ad09-55362e75db78"
+              },
+              {
+                "identifier": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
+                "spec_object_ref": "_15b27844-8aad-4cf9-a3c1-000fd74f981d",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "17",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-5-2"
+                },
+                "spec_object_identifier": "_15b27844-8aad-4cf9-a3c1-000fd74f981d"
+              },
+              {
+                "identifier": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
+                "spec_object_ref": "_7868d52e-1624-4b38-9693-0dfd8af08680",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "18",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-5-3"
+                },
+                "spec_object_identifier": "_7868d52e-1624-4b38-9693-0dfd8af08680"
+              },
+              {
+                "identifier": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
+                "spec_object_ref": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "19",
+                  "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+                  "origID": "REQ-300-1-5-4"
+                },
+                "spec_object_identifier": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "identifier": "_6a021d35-25b9-4777-981c-c46ea170a249",
+        "spec_object_ref": "_d61974fa-ee94-4448-8e1a-db9597741291",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "4",
+          "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+          "origID": "REQ-300-1-1"
+        },
+        "spec_object_identifier": "_d61974fa-ee94-4448-8e1a-db9597741291"
+      },
+      {
+        "identifier": "_67788b14-e8c2-4829-994c-857075ef66e3",
+        "spec_object_ref": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "5",
+          "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+          "origID": "REQ-300-1-2"
+        },
+        "spec_object_identifier": "_24dd5196-e6ba-4e74-8102-b6f807e16814",
+        "children": [
+          {
+            "identifier": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
+            "spec_object_ref": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "6",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-2-1"
+            },
+            "spec_object_identifier": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d"
+          },
+          {
+            "identifier": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
+            "spec_object_ref": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "7",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-2-2"
+            },
+            "spec_object_identifier": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3"
+          },
+          {
+            "identifier": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
+            "spec_object_ref": "_cb920962-bbbe-4eef-8137-106d8de2a4c5",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "8",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-2-3"
+            },
+            "spec_object_identifier": "_cb920962-bbbe-4eef-8137-106d8de2a4c5"
+          }
+        ]
+      },
+      {
+        "identifier": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
+        "spec_object_ref": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "6",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-2-1"
+        },
+        "spec_object_identifier": "_4e64bbcb-5fbd-4e70-bb40-e2e590e7d25d"
+      },
+      {
+        "identifier": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
+        "spec_object_ref": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "7",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-2-2"
+        },
+        "spec_object_identifier": "_effb3040-cd7d-4dfa-9c48-02d4f98beed3"
+      },
+      {
+        "identifier": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
+        "spec_object_ref": "_cb920962-bbbe-4eef-8137-106d8de2a4c5",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "8",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-2-3"
+        },
+        "spec_object_identifier": "_cb920962-bbbe-4eef-8137-106d8de2a4c5"
+      },
+      {
+        "identifier": "_1cde7f26-5761-4372-b828-ea6878f0a226",
+        "spec_object_ref": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "9",
+          "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+          "origID": "REQ-300-1-3"
+        },
+        "spec_object_identifier": "_80e3c668-b36a-49f7-8f83-5f58271b253b",
+        "children": [
+          {
+            "identifier": "_10a336c6-881b-4a24-bbdb-251fb8621867",
+            "spec_object_ref": "_a76f4db7-2dda-439b-8113-8bac93dc837d",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "10",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-3-1"
+            },
+            "spec_object_identifier": "_a76f4db7-2dda-439b-8113-8bac93dc837d"
+          },
+          {
+            "identifier": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
+            "spec_object_ref": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "11",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-3-2"
+            },
+            "spec_object_identifier": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a"
+          }
+        ]
+      },
+      {
+        "identifier": "_10a336c6-881b-4a24-bbdb-251fb8621867",
+        "spec_object_ref": "_a76f4db7-2dda-439b-8113-8bac93dc837d",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "10",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-3-1"
+        },
+        "spec_object_identifier": "_a76f4db7-2dda-439b-8113-8bac93dc837d"
+      },
+      {
+        "identifier": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
+        "spec_object_ref": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "11",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-3-2"
+        },
+        "spec_object_identifier": "_e5e1ae23-21dd-47cf-bb52-f3b24e5c745a"
+      },
+      {
+        "identifier": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
+        "spec_object_ref": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "12",
+          "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+          "origID": "REQ-300-1-4"
+        },
+        "spec_object_identifier": "_91ad7e20-b2d7-47a3-b2f2-4bfa98411c95",
+        "children": [
+          {
+            "identifier": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
+            "spec_object_ref": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "13",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-4-1"
+            },
+            "spec_object_identifier": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df"
+          },
+          {
+            "identifier": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
+            "spec_object_ref": "_34d20565-21fd-412a-9313-5a86dd271c42",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "14",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-4-2"
+            },
+            "spec_object_identifier": "_34d20565-21fd-412a-9313-5a86dd271c42"
+          }
+        ]
+      },
+      {
+        "identifier": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
+        "spec_object_ref": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "13",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-4-1"
+        },
+        "spec_object_identifier": "_c334ad0e-6686-4ea8-8c0a-16a0ad4d52df"
+      },
+      {
+        "identifier": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
+        "spec_object_ref": "_34d20565-21fd-412a-9313-5a86dd271c42",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "14",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-4-2"
+        },
+        "spec_object_identifier": "_34d20565-21fd-412a-9313-5a86dd271c42"
+      },
+      {
+        "identifier": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
+        "spec_object_ref": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "15",
+          "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+          "origID": "REQ-300-1-5"
+        },
+        "spec_object_identifier": "_8c897702-aa26-4815-b974-8b2b25b993ad",
+        "children": [
+          {
+            "identifier": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
+            "spec_object_ref": "_3d039718-d8de-40d9-ad09-55362e75db78",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "16",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-5-1"
+            },
+            "spec_object_identifier": "_3d039718-d8de-40d9-ad09-55362e75db78"
+          },
+          {
+            "identifier": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
+            "spec_object_ref": "_15b27844-8aad-4cf9-a3c1-000fd74f981d",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "17",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-5-2"
+            },
+            "spec_object_identifier": "_15b27844-8aad-4cf9-a3c1-000fd74f981d"
+          },
+          {
+            "identifier": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
+            "spec_object_ref": "_7868d52e-1624-4b38-9693-0dfd8af08680",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "18",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-5-3"
+            },
+            "spec_object_identifier": "_7868d52e-1624-4b38-9693-0dfd8af08680"
+          },
+          {
+            "identifier": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
+            "spec_object_ref": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "19",
+              "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+              "origID": "REQ-300-1-5-4"
+            },
+            "spec_object_identifier": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998"
+          }
+        ]
+      },
+      {
+        "identifier": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
+        "spec_object_ref": "_3d039718-d8de-40d9-ad09-55362e75db78",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "16",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-5-1"
+        },
+        "spec_object_identifier": "_3d039718-d8de-40d9-ad09-55362e75db78"
+      },
+      {
+        "identifier": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
+        "spec_object_ref": "_15b27844-8aad-4cf9-a3c1-000fd74f981d",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "17",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-5-2"
+        },
+        "spec_object_identifier": "_15b27844-8aad-4cf9-a3c1-000fd74f981d"
+      },
+      {
+        "identifier": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
+        "spec_object_ref": "_7868d52e-1624-4b38-9693-0dfd8af08680",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "18",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-5-3"
+        },
+        "spec_object_identifier": "_7868d52e-1624-4b38-9693-0dfd8af08680"
+      },
+      {
+        "identifier": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
+        "spec_object_ref": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "19",
+          "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+          "origID": "REQ-300-1-5-4"
+        },
+        "spec_object_identifier": "_ccdcc61b-ade6-4dcd-a930-36e36d8f6998"
+      },
+      {
+        "identifier": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca",
+        "spec_object_ref": "_0fbf34f3-939a-4422-976e-ccddf3fabf86",
+        "level": 2,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "20",
+          "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+          "origID": "REQ-300-2"
+        },
+        "spec_object_identifier": "_0fbf34f3-939a-4422-976e-ccddf3fabf86",
+        "children": [
+          {
+            "identifier": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
+            "spec_object_ref": "_54083771-6137-4746-a5fb-f073ae4cc400",
+            "level": 3,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "21",
+              "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+              "origID": "REQ-300-2-1"
+            },
+            "spec_object_identifier": "_54083771-6137-4746-a5fb-f073ae4cc400",
+            "children": [
+              {
+                "identifier": "_982676bd-7470-4696-8133-e6ab54de0417",
+                "spec_object_ref": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "22",
+                  "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+                  "origID": "REQ-300-2-1-1"
+                },
+                "spec_object_identifier": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+                "children": [
+                  {
+                    "identifier": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
+                    "spec_object_ref": "_c9b49025-bd17-4251-ab4c-2e210433d5f2",
+                    "level": 5,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "23",
+                      "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                      "origID": "REQ-300-2-1-1-1"
+                    },
+                    "spec_object_identifier": "_c9b49025-bd17-4251-ab4c-2e210433d5f2"
+                  },
+                  {
+                    "identifier": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
+                    "spec_object_ref": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5",
+                    "level": 5,
+                    "long_name": null,
+                    "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                    "spec_object_type_name": "REQ Object Type",
+                    "last_change": "2024-07-03T09:05:56.840Z",
+                    "attributes": {
+                      "ReqIF.ForeignID": "24",
+                      "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                      "origID": "REQ-300-2-1-1-2"
+                    },
+                    "spec_object_identifier": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5"
+                  }
+                ]
+              },
+              {
+                "identifier": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
+                "spec_object_ref": "_cad4429f-0be6-496f-9630-b7fbc5136b76",
+                "level": 4,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "25",
+                  "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+                  "origID": "REQ-300-2-1-2"
+                },
+                "spec_object_identifier": "_cad4429f-0be6-496f-9630-b7fbc5136b76"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "identifier": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
+        "spec_object_ref": "_54083771-6137-4746-a5fb-f073ae4cc400",
+        "level": 3,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "21",
+          "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+          "origID": "REQ-300-2-1"
+        },
+        "spec_object_identifier": "_54083771-6137-4746-a5fb-f073ae4cc400",
+        "children": [
+          {
+            "identifier": "_982676bd-7470-4696-8133-e6ab54de0417",
+            "spec_object_ref": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "22",
+              "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+              "origID": "REQ-300-2-1-1"
+            },
+            "spec_object_identifier": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+            "children": [
+              {
+                "identifier": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
+                "spec_object_ref": "_c9b49025-bd17-4251-ab4c-2e210433d5f2",
+                "level": 5,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "23",
+                  "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                  "origID": "REQ-300-2-1-1-1"
+                },
+                "spec_object_identifier": "_c9b49025-bd17-4251-ab4c-2e210433d5f2"
+              },
+              {
+                "identifier": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
+                "spec_object_ref": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5",
+                "level": 5,
+                "long_name": null,
+                "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+                "spec_object_type_name": "REQ Object Type",
+                "last_change": "2024-07-03T09:05:56.840Z",
+                "attributes": {
+                  "ReqIF.ForeignID": "24",
+                  "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+                  "origID": "REQ-300-2-1-1-2"
+                },
+                "spec_object_identifier": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5"
+              }
+            ]
+          },
+          {
+            "identifier": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
+            "spec_object_ref": "_cad4429f-0be6-496f-9630-b7fbc5136b76",
+            "level": 4,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "25",
+              "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+              "origID": "REQ-300-2-1-2"
+            },
+            "spec_object_identifier": "_cad4429f-0be6-496f-9630-b7fbc5136b76"
+          }
+        ]
+      },
+      {
+        "identifier": "_982676bd-7470-4696-8133-e6ab54de0417",
+        "spec_object_ref": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "22",
+          "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+          "origID": "REQ-300-2-1-1"
+        },
+        "spec_object_identifier": "_f312ea0a-3094-4612-a6a1-12eba5661faa",
+        "children": [
+          {
+            "identifier": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
+            "spec_object_ref": "_c9b49025-bd17-4251-ab4c-2e210433d5f2",
+            "level": 5,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "23",
+              "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+              "origID": "REQ-300-2-1-1-1"
+            },
+            "spec_object_identifier": "_c9b49025-bd17-4251-ab4c-2e210433d5f2"
+          },
+          {
+            "identifier": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
+            "spec_object_ref": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5",
+            "level": 5,
+            "long_name": null,
+            "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+            "spec_object_type_name": "REQ Object Type",
+            "last_change": "2024-07-03T09:05:56.840Z",
+            "attributes": {
+              "ReqIF.ForeignID": "24",
+              "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+              "origID": "REQ-300-2-1-1-2"
+            },
+            "spec_object_identifier": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5"
+          }
+        ]
+      },
+      {
+        "identifier": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
+        "spec_object_ref": "_c9b49025-bd17-4251-ab4c-2e210433d5f2",
+        "level": 5,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "23",
+          "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+          "origID": "REQ-300-2-1-1-1"
+        },
+        "spec_object_identifier": "_c9b49025-bd17-4251-ab4c-2e210433d5f2"
+      },
+      {
+        "identifier": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
+        "spec_object_ref": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5",
+        "level": 5,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "24",
+          "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+          "origID": "REQ-300-2-1-1-2"
+        },
+        "spec_object_identifier": "_6cae6fe5-7c28-4929-8753-2a0fa5cfd7f5"
+      },
+      {
+        "identifier": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
+        "spec_object_ref": "_cad4429f-0be6-496f-9630-b7fbc5136b76",
+        "level": 4,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:05:56.840Z",
+        "attributes": {
+          "ReqIF.ForeignID": "25",
+          "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+          "origID": "REQ-300-2-1-2"
+        },
+        "spec_object_identifier": "_cad4429f-0be6-496f-9630-b7fbc5136b76"
+      },
+      {
+        "identifier": "_2cd02fa7-aca4-42ee-99e3-eca4ae281f1d",
+        "spec_object_ref": "_9407e7c4-aa02-4035-96ae-3cda3c3b2971",
+        "level": 1,
+        "long_name": null,
+        "spec_object_type": "_0735ec9e-ab4f-483c-899d-30662abf69cf",
+        "spec_object_type_name": "REQ Object Type",
+        "last_change": "2024-07-03T09:04:32.554Z",
+        "attributes": {
+          "ReqIF.ForeignID": "1"
+        },
+        "spec_object_identifier": "_9407e7c4-aa02-4035-96ae-3cda3c3b2971"
+      }
+    ]
+  }
+]
