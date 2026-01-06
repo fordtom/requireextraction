@@ -1,7 +1,7 @@
 import json
 import re
 from pathlib import Path
-from reqif.parser import ReqIFParser
+from reqif.parser import ReqIFParser, ReqIFZParser
 
 
 def extract_requirement(bundle, node):
@@ -126,24 +126,166 @@ def process_reqif_file(file_path):
         return None
 
 
-if __name__ == "__main__":
-    test_files = [
-        "examples/reqif_testfile.reqif",
-        "examples/Sample.reqif",
-        "examples/Sample_CustomAttributes.reqif",
-    ]
+def process_reqifz_file(file_path, output_dir=None):
+    """Process a ReqIFZ bundle and return combined data with attachments extracted.
 
-    for test_file in test_files:
-        if Path(test_file).exists():
-            result = process_reqif_file(test_file)
-            if result:
-                output_file = test_file.replace(".reqif", "_flat.json")
-                with open(output_file, "w") as f:
-                    json.dump(result, f, indent=2, default=str)
-                print(f"Processed {test_file} -> {output_file}")
-                print(f"  Requirements: {len(result['requirements'])}")
-                print(f"  Links: {len(result['links'])}")
-            else:
-                print(f"Failed to process {test_file}")
+    Args:
+        file_path: Path to the .reqifz file
+        output_dir: Directory to extract attachments to. If None, uses <filename>_output/
+
+    Returns:
+        Dict with 'requirements', 'links', and 'attachments' (list of extracted file paths)
+    """
+    try:
+        file_path = Path(file_path)
+
+        if output_dir is None:
+            output_dir = file_path.parent / f"{file_path.stem}_output"
         else:
-            print(f"File not found: {test_file}")
+            output_dir = Path(output_dir)
+
+        z_bundle = ReqIFZParser.parse(str(file_path))
+
+        all_requirements = []
+        all_links = []
+        extracted_attachments = []
+
+        # Process each ReqIF bundle in the archive
+        for bundle_name, bundle in z_bundle.reqif_bundles.items():
+            print(f"  Processing embedded ReqIF: {bundle_name}")
+
+            if bundle.core_content is None or bundle.core_content.req_if_content is None:
+                continue
+
+            if bundle.core_content.req_if_content.specifications is None:
+                continue
+
+            for specification in bundle.core_content.req_if_content.specifications:
+                node_map = {}
+                parent_map = {}
+
+                def collect_nodes(node, parent_id=None):
+                    node_map[node.identifier] = node
+                    if parent_id:
+                        parent_map[node.identifier] = parent_id
+                    if node.children:
+                        for child in node.children:
+                            collect_nodes(child, node.identifier)
+
+                for root_node in bundle.iterate_specification_hierarchy(specification):
+                    collect_nodes(root_node)
+
+                for node_id, node in node_map.items():
+                    req = extract_requirement(bundle, node)
+                    if req:
+                        req["source_file"] = bundle_name
+                        all_requirements.append(req)
+
+                for child_id, parent_id in parent_map.items():
+                    all_links.append({
+                        "source": parent_id,
+                        "type": "hierarchy",
+                        "target": child_id,
+                    })
+
+        # Extract attachments (images, documents, etc.)
+        if z_bundle.attachments:
+            attachments_dir = output_dir / "attachments"
+            attachments_dir.mkdir(parents=True, exist_ok=True)
+
+            for attachment_name, attachment_data in z_bundle.attachments.items():
+                # Skip directory entries (empty data or names ending with /)
+                if not attachment_data or attachment_name.endswith("/"):
+                    continue
+
+                # Preserve directory structure within attachments
+                attachment_path = attachments_dir / attachment_name
+                attachment_path.parent.mkdir(parents=True, exist_ok=True)
+
+                with open(attachment_path, "wb") as f:
+                    f.write(attachment_data)
+
+                extracted_attachments.append(str(attachment_path.relative_to(output_dir)))
+                print(f"  Extracted attachment: {attachment_name}")
+
+        return {
+            "requirements": all_requirements,
+            "links": all_links,
+            "attachments": extracted_attachments,
+        }
+
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
+def process_file(file_path):
+    """Process a ReqIF or ReqIFZ file based on extension."""
+    file_path = Path(file_path)
+
+    if not file_path.exists():
+        print(f"File not found: {file_path}")
+        return None
+
+    extension = file_path.suffix.lower()
+
+    if extension == ".reqifz":
+        print(f"Processing ReqIFZ bundle: {file_path}")
+        output_dir = file_path.parent / f"{file_path.stem}_output"
+        result = process_reqifz_file(file_path, output_dir)
+
+        if result:
+            output_file = output_dir / f"{file_path.stem}_flat.json"
+            output_dir.mkdir(parents=True, exist_ok=True)
+            with open(output_file, "w") as f:
+                json.dump(result, f, indent=2, default=str)
+            print(f"Processed {file_path} -> {output_file}")
+            print(f"  Requirements: {len(result['requirements'])}")
+            print(f"  Links: {len(result['links'])}")
+            print(f"  Attachments: {len(result['attachments'])}")
+        return result
+
+    elif extension == ".reqif":
+        print(f"Processing ReqIF file: {file_path}")
+        result = process_reqif_file(file_path)
+
+        if result:
+            output_file = str(file_path).replace(".reqif", "_flat.json")
+            with open(output_file, "w") as f:
+                json.dump(result, f, indent=2, default=str)
+            print(f"Processed {file_path} -> {output_file}")
+            print(f"  Requirements: {len(result['requirements'])}")
+            print(f"  Links: {len(result['links'])}")
+        return result
+
+    else:
+        print(f"Unsupported file type: {extension}")
+        return None
+
+
+if __name__ == "__main__":
+    import sys
+
+    # If command line arguments provided, process those files
+    if len(sys.argv) > 1:
+        for file_arg in sys.argv[1:]:
+            process_file(file_arg)
+    else:
+        # Default test files
+        test_files = [
+            "examples/reqif_testfile.reqif",
+            "examples/Sample.reqif",
+            "examples/Sample_CustomAttributes.reqif",
+        ]
+
+        # Also look for any .reqifz files in examples
+        examples_dir = Path("examples")
+        if examples_dir.exists():
+            test_files.extend(str(f) for f in examples_dir.glob("*.reqifz"))
+
+        for test_file in test_files:
+            result = process_file(test_file)
+            if result is None:
+                print(f"Failed to process {test_file}")
