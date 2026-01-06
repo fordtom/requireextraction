@@ -2,178 +2,276 @@
   "requirements": [
     {
       "id": "_95387be2-f3fb-46d7-9356-f77cee99b05c",
-      "foreign_id": "2",
-      "origin_id": "REQ-300",
       "name": "The XXXXX shall XXXXX",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "2",
+        "ReqIF.ChapterName": "The XXXXX shall XXXXX",
+        "origID": "REQ-300"
+      }
     },
     {
       "id": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "foreign_id": "3",
-      "origin_id": "REQ-300-1",
       "name": "The YYYYY shall YYYYYY",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "3",
+        "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+        "origID": "REQ-300-1"
+      }
     },
     {
       "id": "_6a021d35-25b9-4777-981c-c46ea170a249",
-      "foreign_id": "4",
-      "origin_id": "REQ-300-1-1",
       "name": "The ZZZZZ shall ZZZZZ",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "4",
+        "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+        "origID": "REQ-300-1-1"
+      }
     },
     {
       "id": "_67788b14-e8c2-4829-994c-857075ef66e3",
-      "foreign_id": "5",
-      "origin_id": "REQ-300-1-2",
       "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "5",
+        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+        "origID": "REQ-300-1-2"
+      }
     },
     {
       "id": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
-      "foreign_id": "6",
-      "origin_id": "REQ-300-1-2-1",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "6",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-2-1"
+      }
     },
     {
       "id": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
-      "foreign_id": "7",
-      "origin_id": "REQ-300-1-2-2",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "7",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-2-2"
+      }
     },
     {
       "id": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
-      "foreign_id": "8",
-      "origin_id": "REQ-300-1-2-3",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "8",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-2-3"
+      }
     },
     {
       "id": "_1cde7f26-5761-4372-b828-ea6878f0a226",
-      "foreign_id": "9",
-      "origin_id": "REQ-300-1-3",
       "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "9",
+        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+        "origID": "REQ-300-1-3"
+      }
     },
     {
       "id": "_10a336c6-881b-4a24-bbdb-251fb8621867",
-      "foreign_id": "10",
-      "origin_id": "REQ-300-1-3-1",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "10",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-3-1"
+      }
     },
     {
       "id": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
-      "foreign_id": "11",
-      "origin_id": "REQ-300-1-3-2",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "11",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-3-2"
+      }
     },
     {
       "id": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
-      "foreign_id": "12",
-      "origin_id": "REQ-300-1-4",
       "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "12",
+        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+        "origID": "REQ-300-1-4"
+      }
     },
     {
       "id": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
-      "foreign_id": "13",
-      "origin_id": "REQ-300-1-4-1",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "13",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-4-1"
+      }
     },
     {
       "id": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
-      "foreign_id": "14",
-      "origin_id": "REQ-300-1-4-2",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "14",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-4-2"
+      }
     },
     {
       "id": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "foreign_id": "15",
-      "origin_id": "REQ-300-1-5",
       "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "15",
+        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
+        "origID": "REQ-300-1-5"
+      }
     },
     {
       "id": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
-      "foreign_id": "16",
-      "origin_id": "REQ-300-1-5-1",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "16",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-5-1"
+      }
     },
     {
       "id": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
-      "foreign_id": "17",
-      "origin_id": "REQ-300-1-5-2",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "17",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-5-2"
+      }
     },
     {
       "id": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
-      "foreign_id": "18",
-      "origin_id": "REQ-300-1-5-3",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "18",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-5-3"
+      }
     },
     {
       "id": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
-      "foreign_id": "19",
-      "origin_id": "REQ-300-1-5-4",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "19",
+        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
+        "origID": "REQ-300-1-5-4"
+      }
     },
     {
       "id": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca",
-      "foreign_id": "20",
-      "origin_id": "REQ-300-2",
       "name": "The YYYYY shall YYYYYY",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "20",
+        "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
+        "origID": "REQ-300-2"
+      }
     },
     {
       "id": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
-      "foreign_id": "21",
-      "origin_id": "REQ-300-2-1",
       "name": "The ZZZZZ shall ZZZZZ",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "21",
+        "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
+        "origID": "REQ-300-2-1"
+      }
     },
     {
       "id": "_982676bd-7470-4696-8133-e6ab54de0417",
-      "foreign_id": "22",
-      "origin_id": "REQ-300-2-1-1",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "22",
+        "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+        "origID": "REQ-300-2-1-1"
+      }
     },
     {
       "id": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
-      "foreign_id": "23",
-      "origin_id": "REQ-300-2-1-1-1",
       "name": "The TTTTT shall be capable of TTTTT",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "23",
+        "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+        "origID": "REQ-300-2-1-1-1"
+      }
     },
     {
       "id": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
-      "foreign_id": "24",
-      "origin_id": "REQ-300-2-1-1-2",
       "name": "The TTTTT shall be capable of TTTTT",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "24",
+        "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
+        "origID": "REQ-300-2-1-1-2"
+      }
     },
     {
       "id": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
-      "foreign_id": "25",
-      "origin_id": "REQ-300-2-1-2",
       "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z"
+      "last_change": "2024-07-03T09:05:56.840Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "25",
+        "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
+        "origID": "REQ-300-2-1-2"
+      }
     },
     {
       "id": "_2cd02fa7-aca4-42ee-99e3-eca4ae281f1d",
-      "foreign_id": "1",
-      "origin_id": "",
       "name": "",
-      "last_change": "2024-07-03T09:04:32.554Z"
+      "last_change": "2024-07-03T09:04:32.554Z",
+      "type": "REQ Object Type",
+      "attributes": {
+        "ReqIF.ForeignID": "1"
+      }
     }
   ],
   "links": [
