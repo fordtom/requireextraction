@@ -61,11 +61,9 @@ def extract_requirement(bundle, node):
     else:
         name = ""
 
-    # Build requirement object
+    # Build requirement object with core identifiers
     req = {
         "id": node.identifier,
-        "foreign_id": attrs.get("ReqIF.ForeignID", ""),
-        "origin_id": attrs.get("origID", ""),
         "name": name,
     }
 
@@ -73,6 +71,13 @@ def extract_requirement(bundle, node):
     last_change = node.last_change or spec_object.last_change
     if last_change:
         req["last_change"] = last_change
+
+    # Add spec object type info
+    if spec_type and hasattr(spec_type, "long_name"):
+        req["type"] = spec_type.long_name
+
+    # Add all extracted attributes dynamically
+    req["attributes"] = attrs
 
     return req
 
