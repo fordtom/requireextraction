@@ -14,133 +14,20 @@ Benefits of this approach:
 Tradeoffs:
 - Loses ReqIF UUIDs (uses numeric IDs instead)
 - Loses last_change timestamps
-- Two-step conversion process (ReqIF -> SDoc -> JSON)
 """
 
 import json
 import re
-import shutil
-import subprocess
-import tempfile
 from pathlib import Path
+from typing import Any
 
+from reqif.parser import ReqIFParser, ReqIFZParser
 
-def run_strictdoc_import(input_path: Path, output_dir: Path) -> Path | None:
-    """Run strictdoc import to convert ReqIF to SDoc format.
-
-    Args:
-        input_path: Path to the .reqif file
-        output_dir: Directory to write the .sdoc output
-
-    Returns:
-        Path to the generated SDoc directory, or None on failure
-    """
-    sdoc_output = output_dir / f"{input_path.stem}.sdoc"
-
-    cmd = [
-        "strictdoc", "import", "reqif", "p01_sdoc",
-        str(input_path),
-        str(sdoc_output),
-        "--reqif-import-markup=HTML"
-    ]
-
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            print(f"Error importing ReqIF: {result.stderr}")
-            return None
-        return sdoc_output
-    except Exception as e:
-        print(f"Failed to run strictdoc import: {e}")
-        return None
-
-
-def run_strictdoc_export(sdoc_dir: Path, output_dir: Path) -> Path | None:
-    """Run strictdoc export to convert SDoc to JSON format.
-
-    Args:
-        sdoc_dir: Path to the directory containing .sdoc files
-        output_dir: Directory to write the JSON output
-
-    Returns:
-        Path to the generated JSON file, or None on failure
-    """
-    cmd = [
-        "strictdoc", "export",
-        str(sdoc_dir),
-        "--formats=json",
-        f"--output-dir={output_dir}"
-    ]
-
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            print(f"Error exporting to JSON: {result.stderr}")
-            return None
-
-        # StrictDoc puts JSON in json/index.json
-        json_file = output_dir / "json" / "index.json"
-        if json_file.exists():
-            return json_file
-        return None
-    except Exception as e:
-        print(f"Failed to run strictdoc export: {e}")
-        return None
-
-
-def flatten_nodes(nodes: list, parent_uid: str | None = None) -> tuple[list, list]:
-    """Flatten a nested node structure into requirements and links.
-
-    Args:
-        nodes: List of nested node objects from StrictDoc JSON
-        parent_uid: UID of the parent node (for building links)
-
-    Returns:
-        Tuple of (requirements list, links list)
-    """
-    requirements = []
-    links = []
-
-    for node in nodes:
-        node_type = node.get("_NODE_TYPE", "")
-        uid = node.get("UID", "")
-
-        # Build requirement object
-        req = {
-            "id": uid,
-            "name": node.get("TITLE", "") or clean_html(node.get("STATEMENT", "")),
-            "type": node_type,
-            "attributes": {}
-        }
-
-        # Extract all non-metadata fields as attributes
-        for key, value in node.items():
-            if not key.startswith("_") and key not in ("NODES", "UID"):
-                req["attributes"][key] = value
-
-        # Add TOC if present
-        toc = node.get("_TOC", "")
-        if toc:
-            req["toc"] = toc
-
-        requirements.append(req)
-
-        # Build link from parent to this node
-        if parent_uid:
-            links.append({
-                "source": parent_uid,
-                "type": "hierarchy",
-                "target": uid
-            })
-
-        # Recursively process children
-        child_nodes = node.get("NODES", [])
-        if child_nodes:
-            child_reqs, child_links = flatten_nodes(child_nodes, uid)
-            requirements.extend(child_reqs)
-            links.extend(child_links)
-
-    return requirements, links
+from strictdoc.backend.reqif.p01_sdoc.reqif_to_sdoc_converter import (
+    P01_ReqIFToSDocConverter,
+)
+from strictdoc.backend.sdoc.models.document import SDocDocument
+from strictdoc.backend.sdoc.models.node import SDocNode
 
 
 def clean_html(html_str: str) -> str:
@@ -151,13 +38,162 @@ def clean_html(html_str: str) -> str:
     return " ".join(text.split())
 
 
+def serialize_grammar(document: SDocDocument) -> dict[str, Any]:
+    """Serialize the document grammar to a dictionary."""
+    if not document.grammar:
+        return {"ELEMENTS": []}
+
+    elements = []
+    for element in document.grammar.elements:
+        element_dict = {
+            "NODE_TYPE": element.tag,
+            "FIELDS": [],
+            "RELATIONS": [],
+        }
+
+        for field in element.fields:
+            element_dict["FIELDS"].append({
+                "TITLE": field.title,
+                "REQUIRED": "True" if field.required else "False",
+                "TYPE": "String",
+            })
+
+        for relation in element.relations:
+            rel_dict = {"TYPE": relation.relation_type}
+            if relation.relation_role:
+                rel_dict["ROLE"] = relation.relation_role
+            element_dict["RELATIONS"].append(rel_dict)
+
+        elements.append(element_dict)
+
+    return {"ELEMENTS": elements}
+
+
+def serialize_node(
+    node: SDocNode,
+    document: SDocDocument,
+    level_stack: tuple[int, ...],
+) -> dict[str, Any]:
+    """Serialize an SDocNode to a dictionary."""
+    # Build level string for TOC
+    level_str = ""
+    if node.ng_resolved_custom_level and node.ng_resolved_custom_level != "None":
+        level_str = node.ng_resolved_custom_level
+    elif level_stack:
+        level_str = ".".join(map(str, level_stack))
+
+    node_dict: dict[str, Any] = {
+        "_TOC": level_str,
+        "_NODE_TYPE": node.node_type,
+    }
+
+    # Extract all fields from the node
+    if document.grammar:
+        element = document.grammar.elements_by_type.get(node.node_type)
+        if element:
+            for element_field in element.fields:
+                field_name = element_field.title
+                if field_name in node.ordered_fields_lookup:
+                    fields = node.ordered_fields_lookup[field_name]
+                    for field in fields:
+                        node_dict[field_name] = field.get_text_value()
+
+    # Handle composite nodes (sections with children)
+    if node.is_composite and hasattr(node, 'section_contents'):
+        node_dict["NODES"] = []
+        current_number = 0
+        for subnode in node.section_contents:
+            if isinstance(subnode, SDocNode):
+                if subnode.ng_resolved_custom_level is None:
+                    current_number += 1
+                child_dict = serialize_node(
+                    subnode, document, level_stack + (current_number,)
+                )
+                node_dict["NODES"].append(child_dict)
+
+    return node_dict
+
+
+def serialize_document(document: SDocDocument) -> dict[str, Any]:
+    """Serialize an SDocDocument to a dictionary."""
+    doc_dict: dict[str, Any] = {
+        "_NODE_TYPE": "DOCUMENT",
+        "TITLE": document.title,
+        "GRAMMAR": serialize_grammar(document),
+        "NODES": [],
+    }
+
+    # Add options if present
+    if document.config:
+        options = {}
+        if document.config.markup:
+            options["MARKUP"] = document.config.markup
+        if document.config.enable_mid is not None:
+            options["ENABLE_MID"] = document.config.enable_mid
+        if options:
+            doc_dict["_OPTIONS"] = options
+
+    # Serialize all top-level nodes
+    current_number = 0
+    for node in document.section_contents:
+        if isinstance(node, SDocNode):
+            if node.ng_resolved_custom_level is None:
+                current_number += 1
+            node_dict = serialize_node(node, document, (current_number,))
+            doc_dict["NODES"].append(node_dict)
+
+    return doc_dict
+
+
+def flatten_document(doc_dict: dict) -> tuple[list, list]:
+    """Flatten a document dictionary into requirements and links lists."""
+    requirements = []
+    links = []
+
+    def process_nodes(nodes: list, parent_uid: str | None = None):
+        for node in nodes:
+            node_type = node.get("_NODE_TYPE", "")
+            uid = node.get("UID", "")
+
+            # Build requirement object
+            req = {
+                "id": uid,
+                "name": node.get("TITLE", "") or clean_html(node.get("STATEMENT", "")),
+                "type": node_type,
+                "attributes": {}
+            }
+
+            # Extract all non-metadata fields as attributes
+            for key, value in node.items():
+                if not key.startswith("_") and key not in ("NODES", "UID"):
+                    req["attributes"][key] = value
+
+            # Add TOC if present
+            toc = node.get("_TOC", "")
+            if toc:
+                req["toc"] = toc
+
+            requirements.append(req)
+
+            # Build link from parent to this node
+            if parent_uid and uid:
+                links.append({
+                    "source": parent_uid,
+                    "type": "hierarchy",
+                    "target": uid
+                })
+
+            # Recursively process children
+            child_nodes = node.get("NODES", [])
+            if child_nodes:
+                process_nodes(child_nodes, uid)
+
+    process_nodes(doc_dict.get("NODES", []))
+    return requirements, links
+
+
 def process_reqif_file(file_path: str | Path) -> dict | None:
     """Process a ReqIF file using StrictDoc and return JSON output.
-
-    This function:
-    1. Converts ReqIF to SDoc format using strictdoc import
-    2. Exports SDoc to JSON using strictdoc export
-    3. Returns both the native StrictDoc JSON and a flattened version
 
     Args:
         file_path: Path to the .reqif file
@@ -171,34 +207,37 @@ def process_reqif_file(file_path: str | Path) -> dict | None:
         print(f"File not found: {file_path}")
         return None
 
-    # Create temporary directory for intermediate files
-    with tempfile.TemporaryDirectory() as temp_dir:
-        temp_path = Path(temp_dir)
+    try:
+        # Parse ReqIF using the reqif library
+        bundle = ReqIFParser.parse(str(file_path))
 
-        # Step 1: Import ReqIF to SDoc
-        print(f"  Converting ReqIF to SDoc...")
-        sdoc_dir = run_strictdoc_import(file_path, temp_path)
-        if not sdoc_dir:
+        # Convert to SDoc using StrictDoc's converter
+        converter = P01_ReqIFToSDocConverter()
+        documents = converter.convert_reqif_bundle(
+            bundle,
+            enable_mid=False,
+            import_markup="HTML",
+        )
+
+        if not documents:
+            print(f"No documents found in {file_path}")
             return None
 
-        # Step 2: Export SDoc to JSON
-        print(f"  Exporting SDoc to JSON...")
-        json_export_dir = temp_path / "json_export"
-        json_file = run_strictdoc_export(sdoc_dir, json_export_dir)
-        if not json_file:
-            return None
+        # Serialize all documents
+        strictdoc_json = {
+            "_COMMENT": "Fields with _ are metadata. Fields without _ are the actual content.",
+            "DOCUMENTS": []
+        }
 
-        # Read the JSON output
-        with open(json_file) as f:
-            strictdoc_json = json.load(f)
-
-        # Flatten the hierarchical structure for comparison
         all_requirements = []
         all_links = []
 
-        for document in strictdoc_json.get("DOCUMENTS", []):
-            nodes = document.get("NODES", [])
-            reqs, links = flatten_nodes(nodes)
+        for document in documents:
+            doc_dict = serialize_document(document)
+            strictdoc_json["DOCUMENTS"].append(doc_dict)
+
+            # Flatten for comparison
+            reqs, links = flatten_document(doc_dict)
             all_requirements.extend(reqs)
             all_links.extend(links)
 
@@ -210,12 +249,15 @@ def process_reqif_file(file_path: str | Path) -> dict | None:
             }
         }
 
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
 
 def process_reqifz_file(file_path: str | Path, output_dir: Path | None = None) -> dict | None:
     """Process a ReqIFZ bundle file using StrictDoc.
-
-    Note: As of the current StrictDoc version, ReqIFZ support may be limited.
-    This function extracts the ReqIF files from the bundle and processes each.
 
     Args:
         file_path: Path to the .reqifz file
@@ -224,8 +266,6 @@ def process_reqifz_file(file_path: str | Path, output_dir: Path | None = None) -
     Returns:
         Dict containing processed data, or None on failure
     """
-    import zipfile
-
     file_path = Path(file_path)
 
     if output_dir is None:
@@ -233,61 +273,64 @@ def process_reqifz_file(file_path: str | Path, output_dir: Path | None = None) -
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    all_results = {
-        "strictdoc_documents": [],
-        "flat": {
-            "requirements": [],
-            "links": []
-        },
-        "attachments": []
-    }
-
     try:
-        with zipfile.ZipFile(file_path, 'r') as zf:
-            # Extract all files
-            zf.extractall(output_dir / "extracted")
+        # Parse ReqIFZ bundle
+        z_bundle = ReqIFZParser.parse(str(file_path))
 
-            # Find all .reqif files in the extracted content
-            extracted_dir = output_dir / "extracted"
-            reqif_files = list(extracted_dir.rglob("*.reqif"))
+        all_results = {
+            "strictdoc_documents": [],
+            "flat": {
+                "requirements": [],
+                "links": []
+            },
+            "attachments": []
+        }
 
-            if not reqif_files:
-                print(f"No .reqif files found in bundle")
-                return None
+        converter = P01_ReqIFToSDocConverter()
 
-            # Process each ReqIF file
-            for reqif_file in reqif_files:
-                print(f"  Processing embedded: {reqif_file.name}")
-                result = process_reqif_file(reqif_file)
+        # Process each ReqIF bundle
+        for bundle_name, bundle in z_bundle.reqif_bundles.items():
+            print(f"  Processing embedded: {bundle_name}")
 
-                if result:
-                    # Add source file reference
-                    for doc in result["strictdoc"].get("DOCUMENTS", []):
-                        doc["_SOURCE_FILE"] = str(reqif_file.name)
+            documents = converter.convert_reqif_bundle(
+                bundle,
+                enable_mid=False,
+                import_markup="HTML",
+            )
 
-                    all_results["strictdoc_documents"].extend(
-                        result["strictdoc"].get("DOCUMENTS", [])
-                    )
+            for document in documents:
+                doc_dict = serialize_document(document)
+                doc_dict["_SOURCE_FILE"] = bundle_name
+                all_results["strictdoc_documents"].append(doc_dict)
 
-                    for req in result["flat"]["requirements"]:
-                        req["source_file"] = str(reqif_file.name)
+                reqs, links = flatten_document(doc_dict)
+                for req in reqs:
+                    req["source_file"] = bundle_name
+                all_results["flat"]["requirements"].extend(reqs)
+                all_results["flat"]["links"].extend(links)
 
-                    all_results["flat"]["requirements"].extend(
-                        result["flat"]["requirements"]
-                    )
-                    all_results["flat"]["links"].extend(
-                        result["flat"]["links"]
-                    )
+        # Track attachments
+        if z_bundle.attachments:
+            attachments_dir = output_dir / "attachments"
+            attachments_dir.mkdir(parents=True, exist_ok=True)
 
-            # Track attachments (non-reqif files)
-            for item in zf.namelist():
-                if not item.endswith('.reqif') and not item.endswith('/'):
-                    all_results["attachments"].append(item)
+            for attachment_name, attachment_data in z_bundle.attachments.items():
+                if not attachment_data or attachment_name.endswith("/"):
+                    continue
+
+                attachment_path = attachments_dir / attachment_name
+                attachment_path.parent.mkdir(parents=True, exist_ok=True)
+
+                with open(attachment_path, "wb") as f:
+                    f.write(attachment_data)
+
+                all_results["attachments"].append(str(attachment_path.relative_to(output_dir)))
+                print(f"  Extracted attachment: {attachment_name}")
 
         return all_results
 
     except Exception as e:
-        print(f"Error processing ReqIFZ: {e}")
+        print(f"Error processing {file_path}: {e}")
         import traceback
         traceback.print_exc()
         return None
