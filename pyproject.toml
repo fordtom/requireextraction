@@ -6,4 +6,5 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "reqif>=0.0.47",
+    "strictdoc>=0.16.1",
 ]

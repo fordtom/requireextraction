@@ -1,269 +1,428 @@
+"""ReqIF parser with StrictDoc normalization and automatic workarounds.
+
+Pipeline:
+1. Try StrictDoc conversion
+2. On known failures, pre-process bundle to fix issues
+3. Retry StrictDoc conversion
+4. Maximize acceptance while maintaining normalized output
+"""
+
+import copy
 import json
 import re
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import List, Optional
+
 from reqif.parser import ReqIFParser, ReqIFZParser
+from reqif.models.reqif_types import SpecObjectAttributeType
+from strictdoc.backend.reqif.p01_sdoc.reqif_to_sdoc_converter import (
+    P01_ReqIFToSDocConverter,
+)
+from strictdoc.backend.reqif.sdoc_reqif_fields import (
+    map_reqif_field_title_to_sdoc_field_title,
+)
+from strictdoc.export.json.json_generator import JSONGenerator
+
+
+@dataclass
+class ConversionResult:
+    success: bool
+    data: Optional[dict] = None
+    error: Optional[str] = None
+    workarounds_applied: List[str] = field(default_factory=list)
 
 
 def preprocess_reqif_xml(content: str) -> str:
-    """Preprocess ReqIF XML content to handle common issues.
+    """Preprocess ReqIF XML to handle common issues."""
+    # Strip BOM if present
+    if content.startswith('\ufeff'):
+        content = content[1:]
 
-    - Strips XML comments before the XML declaration (invalid but common)
-    - Preserves all other content including comments after declaration
-    """
-    # Find the XML declaration
-    xml_decl_match = re.search(r'<\?xml[^?]*\?>', content)
+    # Strip content before XML declaration
+    xml_decl_match = re.search(r"<\?xml[^?]*\?>", content)
     if xml_decl_match:
-        # Return content starting from XML declaration
-        return content[xml_decl_match.start():]
+        content = content[xml_decl_match.start():]
+
+    # Strip namespace prefix from all ReqIF elements (reqif:ELEMENT -> ELEMENT)
+    # Common prefixes: reqif, r
+    # This also handles root element: <reqif:REQ-IF> -> <REQ-IF>
+    content = re.sub(r'<(reqif|r):([A-Z])', r'<\2', content)
+    content = re.sub(r'</(reqif|r):([A-Z])', r'</\2', content)
+
+    # Convert prefixed xmlns to default xmlns ONLY if no default xmlns exists
+    # <REQ-IF xmlns:reqif="..."> -> <REQ-IF xmlns="...">
+    # But skip if file already has xmlns="..." to avoid duplicates
+    if not re.search(r'<REQ-IF[^>]+xmlns="', content):
+        content = re.sub(r'xmlns:(reqif|r)=', 'xmlns=', content)
+    else:
+        # Remove redundant prefixed xmlns declarations if default already exists
+        content = re.sub(r'\s+xmlns:(reqif|r)="[^"]*"', '', content)
+
     return content
 
 
-def extract_requirement_from_spec_object(bundle, spec_object):
-    """Extract a requirement directly from a spec object (no hierarchy node).
+def fix_unsupported_attribute_types(bundle) -> List[str]:
+    """Convert BOOLEAN and REAL attributes to STRING type in-place.
 
-    Used when files have spec objects but no specification hierarchy.
+    StrictDoc doesn't support BOOLEAN or REAL types. Convert them to STRING.
+    Returns list of field names that were converted.
     """
-    spec_type = None
-    if spec_object.spec_object_type:
-        spec_type = bundle.get_spec_object_type_by_ref(spec_object.spec_object_type)
-
-    # Build attribute map from spec type if available
-    attr_def_map = {}
-    if spec_type and hasattr(spec_type, "attribute_definitions") and spec_type.attribute_definitions:
-        for attr_def in spec_type.attribute_definitions:
-            attr_def_map[attr_def.identifier] = attr_def
-
-    # Extract attributes
-    attrs = {}
-    if spec_object.attributes:
-        for attr in spec_object.attributes:
-            attr_def = attr_def_map.get(attr.definition_ref)
-            attr_name = (
-                attr_def.long_name
-                if attr_def and hasattr(attr_def, "long_name")
-                else attr.definition_ref
-            )
-
-            if isinstance(attr.value, list):
-                attrs[attr_name] = attr.value
-            elif attr.value_stripped_xhtml:
-                attrs[attr_name] = attr.value_stripped_xhtml
-            else:
-                attrs[attr_name] = attr.value
-
-    # Clean HTML tags from text
-    def clean_html(html_str):
-        if not html_str:
-            return ""
-        text_content = re.sub(r"<[^>]+>", "", html_str)
-        return " ".join(text_content.split())
-
-    # Determine name from various sources
-    chapter_name = attrs.get("ReqIF.ChapterName", "")
-    text = attrs.get("ReqIF.Text", "")
-    long_name = spec_object.long_name or ""
-
-    if chapter_name:
-        name = chapter_name
-    elif text:
-        name = clean_html(text)
-    elif long_name:
-        name = long_name
-    else:
-        name = ""
-
-    req = {
-        "id": spec_object.identifier,
-        "name": name,
+    fixed_fields = []
+    unsupported_types = {
+        SpecObjectAttributeType.BOOLEAN,
+        SpecObjectAttributeType.REAL,
+        SpecObjectAttributeType.INTEGER,
+        SpecObjectAttributeType.DATE,
     }
 
-    if spec_object.last_change:
-        req["last_change"] = spec_object.last_change
-
-    if spec_type and hasattr(spec_type, "long_name"):
-        req["type"] = spec_type.long_name
-
-    req["attributes"] = attrs
-
-    return req
-
-
-def extract_requirement(bundle, node):
-    """Extract a requirement object from a hierarchy node."""
     try:
-        spec_object = bundle.get_spec_object_by_ref(node.spec_object)
-    except KeyError:
-        # Spec object reference doesn't exist (file inconsistency)
-        return None
+        content = bundle.core_content.req_if_content
+        if not content or not content.spec_types:
+            return fixed_fields
 
-    if not spec_object:
-        return None
+        for spec_type in content.spec_types:
+            if not hasattr(spec_type, "attribute_definitions"):
+                continue
+            if not spec_type.attribute_definitions:
+                continue
 
-    spec_type = None
-    if spec_object.spec_object_type:
-        try:
-            spec_type = bundle.get_spec_object_type_by_ref(spec_object.spec_object_type)
-        except KeyError:
-            pass  # Type not found, continue without it
+            for attr in spec_type.attribute_definitions:
+                if attr.attribute_type in unsupported_types:
+                    fixed_fields.append(f"{attr.long_name}:{attr.attribute_type.name}")
+                    attr.attribute_type = SpecObjectAttributeType.STRING
 
-    # Build attribute map
-    attr_def_map = {}
-    if spec_type and hasattr(spec_type, "attribute_definitions") and spec_type.attribute_definitions:
-        for attr_def in spec_type.attribute_definitions:
-            attr_def_map[attr_def.identifier] = attr_def
+        # Also fix the actual attribute values in spec objects
+        if content.spec_objects:
+            for spec_obj in content.spec_objects:
+                if not spec_obj.attributes:
+                    continue
+                for attr in spec_obj.attributes:
+                    if attr.attribute_type in unsupported_types:
+                        attr.attribute_type = SpecObjectAttributeType.STRING
+                        # Convert value to string
+                        if attr.value is not None:
+                            if isinstance(attr.value, bool):
+                                attr.value = "true" if attr.value else "false"
+                            elif not isinstance(attr.value, str):
+                                attr.value = str(attr.value)
 
-    # Extract attributes
-    attrs = {}
-    for attr in (spec_object.attributes or []):
-        attr_def = attr_def_map.get(attr.definition_ref)
-        attr_name = (
-            attr_def.long_name
-            if attr_def and hasattr(attr_def, "long_name")
-            else attr.definition_ref
+    except Exception:
+        pass
+
+    return fixed_fields
+
+
+def fix_missing_spec_type_names(bundle) -> List[str]:
+    """Add default names to spec types with missing long_name.
+
+    Returns list of spec type identifiers that were fixed.
+    """
+    fixed_types = []
+
+    try:
+        content = bundle.core_content.req_if_content
+        if not content or not content.spec_types:
+            return fixed_types
+
+        for spec_type in content.spec_types:
+            if not hasattr(spec_type, "long_name"):
+                continue
+            if spec_type.long_name is None or spec_type.long_name.strip() == "":
+                # Use identifier as fallback name
+                spec_type.long_name = spec_type.identifier or "REQUIREMENT"
+                fixed_types.append(spec_type.identifier)
+
+    except Exception:
+        pass
+
+    return fixed_types
+
+
+def fix_duplicate_field_names(bundle) -> List[str]:
+    """Rename duplicate field names by adding suffix.
+
+    Uses StrictDoc's actual field mapping to detect collisions.
+    Returns list of fields that were renamed.
+    """
+    renamed_fields = []
+
+    try:
+        content = bundle.core_content.req_if_content
+        if not content or not content.spec_types:
+            return renamed_fields
+
+        for spec_type in content.spec_types:
+            if not hasattr(spec_type, "attribute_definitions"):
+                continue
+            if not spec_type.attribute_definitions:
+                continue
+
+            seen_names = {}
+            for attr in spec_type.attribute_definitions:
+                # Use StrictDoc's mapping to get the actual normalized name
+                mapped_name = map_reqif_field_title_to_sdoc_field_title(attr.long_name)
+                # Then apply StrictDoc's safe name transformation
+                safe_name = mapped_name.upper().replace(".", "_").replace("-", "_")
+                safe_name = re.sub(r"[^A-Za-z0-9_]", "", safe_name)
+
+                if safe_name in seen_names:
+                    # Rename with suffix to avoid collision
+                    count = seen_names[safe_name] + 1
+                    seen_names[safe_name] = count
+                    old_name = attr.long_name
+                    # Rename the original field name (not the mapped one)
+                    attr.long_name = f"{attr.long_name}_{count}"
+                    renamed_fields.append(f"{old_name} -> {attr.long_name}")
+                else:
+                    seen_names[safe_name] = 1
+
+    except Exception:
+        pass
+
+    return renamed_fields
+
+
+def fix_empty_attribute_values(bundle) -> List[str]:
+    """Remove attributes with empty values that StrictDoc can't handle.
+
+    Returns list of spec object identifiers that had empty values removed.
+    """
+    fixed_objects = []
+
+    try:
+        content = bundle.core_content.req_if_content
+        if not content or not content.spec_objects:
+            return fixed_objects
+
+        for spec_obj in content.spec_objects:
+            if not spec_obj.attributes:
+                continue
+
+            # Filter out empty string attributes
+            original_count = len(spec_obj.attributes)
+            spec_obj.attributes = [
+                attr for attr in spec_obj.attributes
+                if attr.value is not None and (
+                    not isinstance(attr.value, str) or attr.value.strip() != ''
+                )
+            ]
+            if len(spec_obj.attributes) < original_count:
+                fixed_objects.append(spec_obj.identifier)
+
+    except Exception:
+        pass
+
+    return fixed_objects
+
+
+def fix_missing_spec_object_refs(bundle) -> List[str]:
+    """Remove hierarchy nodes and relations that reference missing spec objects.
+
+    Returns list of removed items.
+    """
+    removed_items = []
+
+    try:
+        content = bundle.core_content.req_if_content
+        if not content:
+            return removed_items
+
+        # Build set of valid spec object identifiers
+        valid_refs = set()
+        if content.spec_objects:
+            for so in content.spec_objects:
+                valid_refs.add(so.identifier)
+
+        # Filter hierarchy nodes
+        if content.specifications:
+            for spec in content.specifications:
+                if not spec.children:
+                    continue
+
+                def filter_valid_nodes(nodes):
+                    valid_nodes = []
+                    for node in nodes:
+                        if node.spec_object in valid_refs:
+                            if node.children:
+                                node.children = filter_valid_nodes(node.children)
+                            valid_nodes.append(node)
+                        else:
+                            removed_items.append(f"hierarchy:{node.identifier}")
+                    return valid_nodes
+
+                spec.children = filter_valid_nodes(spec.children)
+
+        # Build set of valid spec type identifiers
+        valid_type_refs = set()
+        if content.spec_types:
+            for st in content.spec_types:
+                valid_type_refs.add(st.identifier)
+
+        # Filter spec relations with missing source/target or missing type
+        if content.spec_relations:
+            original_count = len(content.spec_relations)
+            valid_relations = []
+            for rel in content.spec_relations:
+                # Check source and target exist
+                if rel.source not in valid_refs or rel.target not in valid_refs:
+                    continue
+                # Check relation type exists (if specified)
+                if hasattr(rel, 'relation_type_ref') and rel.relation_type_ref:
+                    if rel.relation_type_ref not in valid_type_refs:
+                        continue
+                valid_relations.append(rel)
+            content.spec_relations = valid_relations
+            removed_count = original_count - len(content.spec_relations)
+            if removed_count > 0:
+                removed_items.append(f"relations:{removed_count}")
+
+        # Rebuild the lookup's parent mapping from the cleaned relations
+        # This ensures consistency between spec_relations and the lookup
+        if hasattr(bundle, 'lookup') and hasattr(bundle.lookup, 'spec_relations_parent_lookup'):
+            bundle.lookup.spec_relations_parent_lookup.clear()
+            if content.spec_relations:
+                for rel in content.spec_relations:
+                    if rel.source not in bundle.lookup.spec_relations_parent_lookup:
+                        bundle.lookup.spec_relations_parent_lookup[rel.source] = []
+                    bundle.lookup.spec_relations_parent_lookup[rel.source].append(rel.target)
+
+    except Exception:
+        pass
+
+    return removed_items
+
+
+def apply_workarounds(bundle) -> List[str]:
+    """Apply all known workarounds to a bundle.
+
+    Returns list of workarounds applied.
+    """
+    workarounds = []
+
+    # Fix unsupported attribute types (BOOLEAN, REAL, INTEGER, DATE)
+    type_fixes = fix_unsupported_attribute_types(bundle)
+    if type_fixes:
+        workarounds.append(f"Converted unsupported types to STRING: {', '.join(type_fixes)}")
+
+    # Fix missing spec type names
+    name_fixes = fix_missing_spec_type_names(bundle)
+    if name_fixes:
+        workarounds.append(f"Added default names to {len(name_fixes)} spec types")
+
+    # Fix duplicate field names
+    dup_fixes = fix_duplicate_field_names(bundle)
+    if dup_fixes:
+        workarounds.append(f"Renamed duplicate fields: {', '.join(dup_fixes)}")
+
+    # Fix empty attribute values
+    empty_fixes = fix_empty_attribute_values(bundle)
+    if empty_fixes:
+        workarounds.append(f"Removed empty attributes from {len(empty_fixes)} objects")
+
+    # Fix missing references in hierarchy and relations
+    ref_fixes = fix_missing_spec_object_refs(bundle)
+    if ref_fixes:
+        workarounds.append(f"Removed invalid references: {', '.join(ref_fixes)}")
+
+    return workarounds
+
+
+def convert_bundle_to_json(bundle, workarounds_applied=None) -> ConversionResult:
+    """Convert a ReqIF bundle to StrictDoc JSON format."""
+    if workarounds_applied is None:
+        workarounds_applied = []
+
+    try:
+        sdoc_documents = P01_ReqIFToSDocConverter.convert_reqif_bundle(
+            bundle,
+            enable_mid=False,
+            import_markup="HTML",
         )
 
-        if isinstance(attr.value, list):
-            attrs[attr_name] = attr.value
-        elif attr.value_stripped_xhtml:
-            attrs[attr_name] = attr.value_stripped_xhtml
-        else:
-            attrs[attr_name] = attr.value
+        if not sdoc_documents:
+            return ConversionResult(
+                success=False,
+                error="No specifications found in ReqIF file",
+            )
 
-    # Clean HTML tags from text
-    def clean_html(html_str):
-        if not html_str:
-            return ""
-        # Remove HTML tags but preserve text content
-        text_content = re.sub(r"<[^>]+>", "", html_str)
-        # Clean up whitespace
-        return " ".join(text_content.split())
+        # Build JSON output
+        result = {
+            "_COMMENT": "Normalized via StrictDoc.",
+            "DOCUMENTS": [],
+        }
 
-    # Determine name
-    chapter_name = attrs.get("ReqIF.ChapterName", "")
-    text = attrs.get("ReqIF.Text", "")
-    long_name = node.long_name or spec_object.long_name or ""
+        if workarounds_applied:
+            result["_WORKAROUNDS_APPLIED"] = workarounds_applied
 
-    # Name: prefer ChapterName, then Text, then long_name
-    if chapter_name:
-        name = chapter_name
-    elif text:
-        name = clean_html(text)
-    elif long_name:
-        name = long_name
-    else:
-        name = ""
+        for doc in sdoc_documents:
+            doc_dict = JSONGenerator._write_document(doc)
+            result["DOCUMENTS"].append(doc_dict)
 
-    # Build requirement object with core identifiers
-    req = {
-        "id": node.identifier,
-        "name": name,
-    }
+        return ConversionResult(
+            success=True,
+            data=result,
+            workarounds_applied=workarounds_applied,
+        )
 
-    # Add metadata if available
-    last_change = node.last_change or spec_object.last_change
-    if last_change:
-        req["last_change"] = last_change
-
-    # Add spec object type info
-    if spec_type and hasattr(spec_type, "long_name"):
-        req["type"] = spec_type.long_name
-
-    # Add all extracted attributes dynamically
-    req["attributes"] = attrs
-
-    return req
+    except Exception as e:
+        return ConversionResult(
+            success=False,
+            error=str(e)[:500],
+            workarounds_applied=workarounds_applied,
+        )
 
 
-def process_reqif_file(file_path, preprocess=True):
-    """Process a ReqIF file and return flat structure with requirements and links.
+def convert_reqif_to_json(bundle) -> ConversionResult:
+    """Convert ReqIF bundle to JSON with automatic workarounds.
 
-    Args:
-        file_path: Path to the .reqif file
-        preprocess: If True, preprocess XML to strip leading comments
-
-    Returns:
-        Dict with 'requirements' and 'links', or None on error
+    Strategy:
+    1. Try direct conversion
+    2. If fails, apply workarounds and retry
     """
+    # First attempt: direct conversion
+    result = convert_bundle_to_json(bundle)
+    if result.success:
+        return result
+
+    # Second attempt: apply workarounds and retry
+    workarounds = apply_workarounds(bundle)
+
+    if workarounds:
+        result = convert_bundle_to_json(bundle, workarounds)
+        if result.success:
+            return result
+
+    # Still failed - return error with context
+    return ConversionResult(
+        success=False,
+        error=result.error,
+        workarounds_applied=workarounds,
+    )
+
+
+def process_reqif_file(file_path, preprocess=True) -> ConversionResult:
+    """Process a ReqIF file with automatic workarounds."""
     try:
-        # Optionally preprocess to handle XML comments before declaration
         if preprocess:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
             content = preprocess_reqif_xml(content)
             bundle = ReqIFParser.parse_from_string(content)
         else:
             bundle = ReqIFParser.parse(file_path)
 
-        requirements = []
-        links = []
-
-        content = bundle.core_content.req_if_content
-        specifications = content.specifications if content else None
-
-        extracted_from_hierarchy = False
-        if specifications:
-            # Standard path: iterate through specification hierarchy
-            for specification in specifications:
-                node_map = {}  # node_id -> node
-                parent_map = {}  # child_id -> parent_id
-
-                def collect_nodes(node, parent_id=None):
-                    node_map[node.identifier] = node
-                    if parent_id:
-                        parent_map[node.identifier] = parent_id
-
-                    if node.children:
-                        for child in node.children:
-                            collect_nodes(child, node.identifier)
-
-                # Collect all nodes from root nodes
-                for root_node in bundle.iterate_specification_hierarchy(specification):
-                    collect_nodes(root_node)
-
-                # Extract requirements
-                for node_id, node in node_map.items():
-                    req = extract_requirement(bundle, node)
-                    if req:
-                        requirements.append(req)
-                        extracted_from_hierarchy = True
-
-                # Build links
-                for child_id, parent_id in parent_map.items():
-                    links.append(
-                        {
-                            "source": parent_id,
-                            "type": "hierarchy",
-                            "target": child_id,
-                        }
-                    )
-
-        # Fallback: no hierarchy found (either no specs, or specs with empty/broken hierarchy)
-        if not extracted_from_hierarchy and content and content.spec_objects:
-            # Fallback: no specifications, but have spec objects
-            # Treat all spec objects as a flat list (no hierarchy)
-            for spec_object in content.spec_objects:
-                req = extract_requirement_from_spec_object(bundle, spec_object)
-                if req:
-                    requirements.append(req)
-            # No hierarchy links in this case
-
-        return {"requirements": requirements, "links": links}
+        return convert_reqif_to_json(bundle)
 
     except Exception as e:
-        print(f"Error processing {file_path}: {e}")
-        return None
+        return ConversionResult(
+            success=False,
+            error=f"Parse error: {str(e)[:300]}",
+        )
 
 
-def process_reqifz_file(file_path, output_dir=None):
-    """Process a ReqIFZ bundle and return combined data with attachments extracted.
-
-    Args:
-        file_path: Path to the .reqifz file
-        output_dir: Directory to extract attachments to. If None, uses <filename>_output/
-
-    Returns:
-        Dict with 'requirements', 'links', and 'attachments' (list of extracted file paths)
-    """
+def process_reqifz_file(file_path, output_dir=None) -> ConversionResult:
+    """Process a ReqIFZ bundle with automatic workarounds."""
     try:
         file_path = Path(file_path)
 
@@ -274,83 +433,86 @@ def process_reqifz_file(file_path, output_dir=None):
 
         z_bundle = ReqIFZParser.parse(str(file_path))
 
-        all_requirements = []
-        all_links = []
+        all_documents = []
+        all_workarounds = []
         extracted_attachments = []
+        errors = []
 
-        # Process each ReqIF bundle in the archive
         for bundle_name, bundle in z_bundle.reqif_bundles.items():
-            print(f"  Processing embedded ReqIF: {bundle_name}")
+            result = convert_reqif_to_json(bundle)
 
-            if bundle.core_content is None or bundle.core_content.req_if_content is None:
-                continue
+            if result.workarounds_applied:
+                all_workarounds.extend(
+                    f"[{bundle_name}] {w}" for w in result.workarounds_applied
+                )
 
-            if bundle.core_content.req_if_content.specifications is None:
-                continue
+            if result.success and result.data:
+                for doc in result.data.get("DOCUMENTS", []):
+                    doc["_SOURCE_FILE"] = bundle_name
+                    all_documents.append(doc)
+            else:
+                errors.append(f"[{bundle_name}] {result.error}")
 
-            for specification in bundle.core_content.req_if_content.specifications:
-                node_map = {}
-                parent_map = {}
-
-                def collect_nodes(node, parent_id=None):
-                    node_map[node.identifier] = node
-                    if parent_id:
-                        parent_map[node.identifier] = parent_id
-                    if node.children:
-                        for child in node.children:
-                            collect_nodes(child, node.identifier)
-
-                for root_node in bundle.iterate_specification_hierarchy(specification):
-                    collect_nodes(root_node)
-
-                for node_id, node in node_map.items():
-                    req = extract_requirement(bundle, node)
-                    if req:
-                        req["source_file"] = bundle_name
-                        all_requirements.append(req)
-
-                for child_id, parent_id in parent_map.items():
-                    all_links.append({
-                        "source": parent_id,
-                        "type": "hierarchy",
-                        "target": child_id,
-                    })
-
-        # Extract attachments (images, documents, etc.)
+        # Extract attachments
         if z_bundle.attachments:
             attachments_dir = output_dir / "attachments"
             attachments_dir.mkdir(parents=True, exist_ok=True)
 
             for attachment_name, attachment_data in z_bundle.attachments.items():
-                # Skip directory entries (empty data or names ending with /)
                 if not attachment_data or attachment_name.endswith("/"):
                     continue
 
-                # Preserve directory structure within attachments
                 attachment_path = attachments_dir / attachment_name
                 attachment_path.parent.mkdir(parents=True, exist_ok=True)
 
                 with open(attachment_path, "wb") as f:
                     f.write(attachment_data)
 
-                extracted_attachments.append(str(attachment_path.relative_to(output_dir)))
-                print(f"  Extracted attachment: {attachment_name}")
+                extracted_attachments.append(
+                    str(attachment_path.relative_to(output_dir))
+                )
 
-        return {
-            "requirements": all_requirements,
-            "links": all_links,
-            "attachments": extracted_attachments,
-        }
+        if all_documents:
+            data = {
+                "_COMMENT": "Normalized via StrictDoc.",
+                "DOCUMENTS": all_documents,
+                "ATTACHMENTS": extracted_attachments,
+            }
+            if all_workarounds:
+                data["_WORKAROUNDS_APPLIED"] = all_workarounds
+            if errors:
+                data["_PARTIAL_ERRORS"] = errors
+
+            return ConversionResult(
+                success=True,
+                data=data,
+                workarounds_applied=all_workarounds,
+            )
+        else:
+            return ConversionResult(
+                success=False,
+                error="; ".join(errors) if errors else "No documents found",
+                workarounds_applied=all_workarounds,
+            )
 
     except Exception as e:
-        print(f"Error processing {file_path}: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
+        return ConversionResult(
+            success=False,
+            error=f"Archive error: {str(e)[:300]}",
+        )
+
+
+def count_nodes(nodes):
+    """Recursively count nodes in the tree."""
+    count = len(nodes)
+    for node in nodes:
+        if "NODES" in node:
+            count += count_nodes(node["NODES"])
+    return count
 
 
 def process_file(file_path):
-    """Process a ReqIF or ReqIFZ file based on extension."""
+    """Process a ReqIF or ReqIFZ file."""
     file_path = Path(file_path)
 
     if not file_path.exists():
@@ -360,60 +522,44 @@ def process_file(file_path):
     extension = file_path.suffix.lower()
 
     if extension == ".reqifz":
-        print(f"Processing ReqIFZ bundle: {file_path}")
         output_dir = file_path.parent / f"{file_path.stem}_output"
         result = process_reqifz_file(file_path, output_dir)
-
-        if result:
-            output_file = output_dir / f"{file_path.stem}_flat.json"
+        if result.success:
+            output_file = output_dir / f"{file_path.stem}_sdoc.json"
             output_dir.mkdir(parents=True, exist_ok=True)
-            with open(output_file, "w") as f:
-                json.dump(result, f, indent=2, default=str)
-            print(f"Processed {file_path} -> {output_file}")
-            print(f"  Requirements: {len(result['requirements'])}")
-            print(f"  Links: {len(result['links'])}")
-            print(f"  Attachments: {len(result['attachments'])}")
-        return result
-
+        else:
+            output_file = None
     elif extension == ".reqif":
-        print(f"Processing ReqIF file: {file_path}")
         result = process_reqif_file(file_path)
-
-        if result:
-            output_file = str(file_path).replace(".reqif", "_flat.json")
-            with open(output_file, "w") as f:
-                json.dump(result, f, indent=2, default=str)
-            print(f"Processed {file_path} -> {output_file}")
-            print(f"  Requirements: {len(result['requirements'])}")
-            print(f"  Links: {len(result['links'])}")
-        return result
-
+        output_file = Path(str(file_path).replace(".reqif", "_sdoc.json")) if result.success else None
     else:
         print(f"Unsupported file type: {extension}")
         return None
+
+    # Output results
+    if result.success:
+        with open(output_file, "w") as f:
+            json.dump(result.data, f, indent=2, default=str)
+
+        docs = len(result.data.get("DOCUMENTS", []))
+        nodes = sum(count_nodes(doc.get("NODES", [])) for doc in result.data.get("DOCUMENTS", []))
+
+        print(f"✓ {file_path.name}: {docs} docs, {nodes} nodes")
+        if result.workarounds_applied:
+            print(f"  Workarounds: {len(result.workarounds_applied)}")
+    else:
+        print(f"✗ {file_path.name}: {result.error[:80]}")
+
+    return result
 
 
 if __name__ == "__main__":
     import sys
 
-    # If command line arguments provided, process those files
     if len(sys.argv) > 1:
         for file_arg in sys.argv[1:]:
             process_file(file_arg)
     else:
-        # Default test files
-        test_files = [
-            "examples/reqif_testfile.reqif",
-            "examples/Sample.reqif",
-            "examples/Sample_CustomAttributes.reqif",
-        ]
-
-        # Also look for any .reqifz files in examples
-        examples_dir = Path("examples")
-        if examples_dir.exists():
-            test_files.extend(str(f) for f in examples_dir.glob("*.reqifz"))
-
-        for test_file in test_files:
-            result = process_file(test_file)
-            if result is None:
-                print(f"Failed to process {test_file}")
+        test_file = Path("examples/reqif_testfile.reqif")
+        if test_file.exists():
+            process_file(test_file)

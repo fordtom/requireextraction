@@ -1,394 +1,251 @@
 {
-  "requirements": [
+  "_COMMENT": "Normalized via StrictDoc.",
+  "DOCUMENTS": [
     {
-      "id": "_95387be2-f3fb-46d7-9356-f77cee99b05c",
-      "name": "The XXXXX shall XXXXX",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "2",
-        "ReqIF.ChapterName": "The XXXXX shall XXXXX",
-        "origID": "REQ-300"
-      }
-    },
-    {
-      "id": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "name": "The YYYYY shall YYYYYY",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "3",
-        "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
-        "origID": "REQ-300-1"
-      }
-    },
-    {
-      "id": "_6a021d35-25b9-4777-981c-c46ea170a249",
-      "name": "The ZZZZZ shall ZZZZZ",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "4",
-        "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
-        "origID": "REQ-300-1-1"
-      }
-    },
-    {
-      "id": "_67788b14-e8c2-4829-994c-857075ef66e3",
-      "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "5",
-        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
-        "origID": "REQ-300-1-2"
-      }
-    },
-    {
-      "id": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "6",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-2-1"
-      }
-    },
-    {
-      "id": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "7",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-2-2"
-      }
-    },
-    {
-      "id": "_c3e57450-a52a-4bec-95d0-ead7884d81ff",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "8",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-2-3"
-      }
-    },
-    {
-      "id": "_1cde7f26-5761-4372-b828-ea6878f0a226",
-      "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "9",
-        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
-        "origID": "REQ-300-1-3"
-      }
-    },
-    {
-      "id": "_10a336c6-881b-4a24-bbdb-251fb8621867",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "10",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-3-1"
-      }
-    },
-    {
-      "id": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "11",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-3-2"
-      }
-    },
-    {
-      "id": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
-      "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "12",
-        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
-        "origID": "REQ-300-1-4"
-      }
-    },
-    {
-      "id": "_dabc03f9-f30a-427d-adeb-5112939bdea5",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "13",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-4-1"
-      }
-    },
-    {
-      "id": "_0e3ff830-72f1-442c-b9d5-ffa115670607",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "14",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-4-2"
-      }
-    },
-    {
-      "id": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "name": "The WWWWW shall WWWWWW",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "15",
-        "ReqIF.ChapterName": "The WWWWW shall WWWWWW",
-        "origID": "REQ-300-1-5"
-      }
-    },
-    {
-      "id": "_83f2b314-2b3e-495b-9888-ed23f1b44000",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "16",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-5-1"
-      }
-    },
-    {
-      "id": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "17",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-5-2"
-      }
-    },
-    {
-      "id": "_6b14d62b-678a-49db-95ff-a63aadf7c337",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "18",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-5-3"
-      }
-    },
-    {
-      "id": "_e33a957c-9037-4683-a523-cb0d0a270e0b",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "19",
-        "ReqIF.Text": "<div><p>The UUUUUU shall be able to UUUUU</p></div>",
-        "origID": "REQ-300-1-5-4"
-      }
-    },
-    {
-      "id": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca",
-      "name": "The YYYYY shall YYYYYY",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "20",
-        "ReqIF.ChapterName": "The YYYYY shall YYYYYY",
-        "origID": "REQ-300-2"
-      }
-    },
-    {
-      "id": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
-      "name": "The ZZZZZ shall ZZZZZ",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "21",
-        "ReqIF.ChapterName": "The ZZZZZ shall ZZZZZ",
-        "origID": "REQ-300-2-1"
-      }
-    },
-    {
-      "id": "_982676bd-7470-4696-8133-e6ab54de0417",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "22",
-        "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
-        "origID": "REQ-300-2-1-1"
-      }
-    },
-    {
-      "id": "_7e93c203-94a4-4e5e-95da-e117146f0fc3",
-      "name": "The TTTTT shall be capable of TTTTT",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "23",
-        "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
-        "origID": "REQ-300-2-1-1-1"
-      }
-    },
-    {
-      "id": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178",
-      "name": "The TTTTT shall be capable of TTTTT",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "24",
-        "ReqIF.Text": "<div><p>The TTTTT shall be capable of TTTTT</p></div>",
-        "origID": "REQ-300-2-1-1-2"
-      }
-    },
-    {
-      "id": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f",
-      "name": "The UUUUUU shall be able to UUUUU",
-      "last_change": "2024-07-03T09:05:56.840Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "25",
-        "ReqIF.ChapterName": "The UUUUUU shall be able to UUUUU",
-        "origID": "REQ-300-2-1-2"
-      }
-    },
-    {
-      "id": "_2cd02fa7-aca4-42ee-99e3-eca4ae281f1d",
-      "name": "",
-      "last_change": "2024-07-03T09:04:32.554Z",
-      "type": "REQ Object Type",
-      "attributes": {
-        "ReqIF.ForeignID": "1"
-      }
-    }
-  ],
-  "links": [
-    {
-      "source": "_95387be2-f3fb-46d7-9356-f77cee99b05c",
-      "type": "hierarchy",
-      "target": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0"
-    },
-    {
-      "source": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "type": "hierarchy",
-      "target": "_6a021d35-25b9-4777-981c-c46ea170a249"
-    },
-    {
-      "source": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "type": "hierarchy",
-      "target": "_67788b14-e8c2-4829-994c-857075ef66e3"
-    },
-    {
-      "source": "_67788b14-e8c2-4829-994c-857075ef66e3",
-      "type": "hierarchy",
-      "target": "_765b9f28-6dbb-4f7c-b82d-efe80efb4513"
-    },
-    {
-      "source": "_67788b14-e8c2-4829-994c-857075ef66e3",
-      "type": "hierarchy",
-      "target": "_2e3de36c-f115-4d87-abc9-4e5e6c54e1ef"
-    },
-    {
-      "source": "_67788b14-e8c2-4829-994c-857075ef66e3",
-      "type": "hierarchy",
-      "target": "_c3e57450-a52a-4bec-95d0-ead7884d81ff"
-    },
-    {
-      "source": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "type": "hierarchy",
-      "target": "_1cde7f26-5761-4372-b828-ea6878f0a226"
-    },
-    {
-      "source": "_1cde7f26-5761-4372-b828-ea6878f0a226",
-      "type": "hierarchy",
-      "target": "_10a336c6-881b-4a24-bbdb-251fb8621867"
-    },
-    {
-      "source": "_1cde7f26-5761-4372-b828-ea6878f0a226",
-      "type": "hierarchy",
-      "target": "_69b572cd-35ae-4eb1-8233-d79d22f43e3d"
-    },
-    {
-      "source": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "type": "hierarchy",
-      "target": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe"
-    },
-    {
-      "source": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
-      "type": "hierarchy",
-      "target": "_dabc03f9-f30a-427d-adeb-5112939bdea5"
-    },
-    {
-      "source": "_c786f7c4-bb9f-4a24-9143-6e6a7ed58dfe",
-      "type": "hierarchy",
-      "target": "_0e3ff830-72f1-442c-b9d5-ffa115670607"
-    },
-    {
-      "source": "_fd475f13-fa56-464e-9ab9-13d09ce07fd0",
-      "type": "hierarchy",
-      "target": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59"
-    },
-    {
-      "source": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "type": "hierarchy",
-      "target": "_83f2b314-2b3e-495b-9888-ed23f1b44000"
-    },
-    {
-      "source": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "type": "hierarchy",
-      "target": "_7a19fb9e-4e77-4b39-b99c-35da4ec41cc4"
-    },
-    {
-      "source": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "type": "hierarchy",
-      "target": "_6b14d62b-678a-49db-95ff-a63aadf7c337"
-    },
-    {
-      "source": "_f839ab5a-62c1-42ec-b4eb-f60c7261ba59",
-      "type": "hierarchy",
-      "target": "_e33a957c-9037-4683-a523-cb0d0a270e0b"
-    },
-    {
-      "source": "_95387be2-f3fb-46d7-9356-f77cee99b05c",
-      "type": "hierarchy",
-      "target": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca"
-    },
-    {
-      "source": "_d545b4ed-82c1-4c27-96bb-aa611933c3ca",
-      "type": "hierarchy",
-      "target": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11"
-    },
-    {
-      "source": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
-      "type": "hierarchy",
-      "target": "_982676bd-7470-4696-8133-e6ab54de0417"
-    },
-    {
-      "source": "_982676bd-7470-4696-8133-e6ab54de0417",
-      "type": "hierarchy",
-      "target": "_7e93c203-94a4-4e5e-95da-e117146f0fc3"
-    },
-    {
-      "source": "_982676bd-7470-4696-8133-e6ab54de0417",
-      "type": "hierarchy",
-      "target": "_bfb5ee34-79a2-40ca-b27c-f3c7e9067178"
-    },
-    {
-      "source": "_56b95a00-a3f6-469b-b5b0-0de0d5d2ae11",
-      "type": "hierarchy",
-      "target": "_afdee4e7-9cc3-4951-b014-2faec19f6b1f"
+      "_NODE_TYPE": "DOCUMENT",
+      "_OPTIONS": {
+        "MARKUP": "HTML"
+      },
+      "TITLE": "REQ",
+      "GRAMMAR": {
+        "ELEMENTS": [
+          {
+            "NODE_TYPE": "REQ_OBJECT_TYPE",
+            "FIELDS": [
+              {
+                "TITLE": "UID",
+                "REQUIRED": "False",
+                "TYPE": "String"
+              },
+              {
+                "TITLE": "TITLE",
+                "REQUIRED": "False",
+                "TYPE": "String"
+              },
+              {
+                "TITLE": "STATEMENT",
+                "REQUIRED": "False",
+                "TYPE": "String"
+              },
+              {
+                "TITLE": "ORIGID",
+                "REQUIRED": "False",
+                "TYPE": "String"
+              }
+            ],
+            "RELATIONS": []
+          }
+        ]
+      },
+      "NODES": [
+        {
+          "_TOC": "1",
+          "_NODE_TYPE": "REQ_OBJECT_TYPE",
+          "UID": "2",
+          "TITLE": "The XXXXX shall XXXXX",
+          "ORIGID": "REQ-300",
+          "NODES": [
+            {
+              "_TOC": "1.1",
+              "_NODE_TYPE": "REQ_OBJECT_TYPE",
+              "UID": "3",
+              "TITLE": "The YYYYY shall YYYYYY",
+              "ORIGID": "REQ-300-1",
+              "NODES": [
+                {
+                  "_TOC": "1.1.1",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "4",
+                  "TITLE": "The ZZZZZ shall ZZZZZ",
+                  "ORIGID": "REQ-300-1-1",
+                  "NODES": []
+                },
+                {
+                  "_TOC": "1.1.2",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "5",
+                  "TITLE": "The WWWWW shall WWWWWW",
+                  "ORIGID": "REQ-300-1-2",
+                  "NODES": [
+                    {
+                      "_TOC": "1.1.2.1",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "6",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-2-1",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.2.2",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "7",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-2-2",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.2.3",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "8",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-2-3",
+                      "NODES": []
+                    }
+                  ]
+                },
+                {
+                  "_TOC": "1.1.3",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "9",
+                  "TITLE": "The WWWWW shall WWWWWW",
+                  "ORIGID": "REQ-300-1-3",
+                  "NODES": [
+                    {
+                      "_TOC": "1.1.3.1",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "10",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-3-1",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.3.2",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "11",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-3-2",
+                      "NODES": []
+                    }
+                  ]
+                },
+                {
+                  "_TOC": "1.1.4",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "12",
+                  "TITLE": "The WWWWW shall WWWWWW",
+                  "ORIGID": "REQ-300-1-4",
+                  "NODES": [
+                    {
+                      "_TOC": "1.1.4.1",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "13",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-4-1",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.4.2",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "14",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-4-2",
+                      "NODES": []
+                    }
+                  ]
+                },
+                {
+                  "_TOC": "1.1.5",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "15",
+                  "TITLE": "The WWWWW shall WWWWWW",
+                  "ORIGID": "REQ-300-1-5",
+                  "NODES": [
+                    {
+                      "_TOC": "1.1.5.1",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "16",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-5-1",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.5.2",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "17",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-5-2",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.5.3",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "18",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-5-3",
+                      "NODES": []
+                    },
+                    {
+                      "_TOC": "1.1.5.4",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "19",
+                      "STATEMENT": "<div><p>The UUUUUU shall be able to UUUUU</p></div>\n",
+                      "ORIGID": "REQ-300-1-5-4",
+                      "NODES": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_TOC": "1.2",
+              "_NODE_TYPE": "REQ_OBJECT_TYPE",
+              "UID": "20",
+              "TITLE": "The YYYYY shall YYYYYY",
+              "ORIGID": "REQ-300-2",
+              "NODES": [
+                {
+                  "_TOC": "1.2.1",
+                  "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                  "UID": "21",
+                  "TITLE": "The ZZZZZ shall ZZZZZ",
+                  "ORIGID": "REQ-300-2-1",
+                  "NODES": [
+                    {
+                      "_TOC": "1.2.1.1",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "22",
+                      "TITLE": "The UUUUUU shall be able to UUUUU",
+                      "ORIGID": "REQ-300-2-1-1",
+                      "NODES": [
+                        {
+                          "_TOC": "1.2.1.1.1",
+                          "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                          "UID": "23",
+                          "STATEMENT": "<div><p>The TTTTT shall be capable of TTTTT</p></div>\n",
+                          "ORIGID": "REQ-300-2-1-1-1",
+                          "NODES": []
+                        },
+                        {
+                          "_TOC": "1.2.1.1.2",
+                          "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                          "UID": "24",
+                          "STATEMENT": "<div><p>The TTTTT shall be capable of TTTTT</p></div>\n",
+                          "ORIGID": "REQ-300-2-1-1-2",
+                          "NODES": []
+                        }
+                      ]
+                    },
+                    {
+                      "_TOC": "1.2.1.2",
+                      "_NODE_TYPE": "REQ_OBJECT_TYPE",
+                      "UID": "25",
+                      "TITLE": "The UUUUUU shall be able to UUUUU",
+                      "ORIGID": "REQ-300-2-1-2",
+                      "NODES": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_TOC": "2",
+          "_NODE_TYPE": "REQ_OBJECT_TYPE",
+          "UID": "1",
+          "NODES": []
+        }
+      ]
     }
   ]
 }
