@@ -1,21 +1,21 @@
 {
   "summary": {
-    "total_files": 47,
-    "successful": 28,
-    "failed": 19,
-    "total_requirements": 23801,
-    "total_links": 23693
+    "total_files": 48,
+    "successful": 44,
+    "failed": 4,
+    "total_requirements": 24133,
+    "total_links": 23987
   },
   "by_source": {
     "strictdoc": {
-      "success": 13,
-      "fail": 8,
-      "reqs": 180
+      "success": 20,
+      "fail": 1,
+      "reqs": 325
     },
     "lutaml": {
-      "success": 1,
-      "fail": 8,
-      "reqs": 1
+      "success": 8,
+      "fail": 1,
+      "reqs": 135
     },
     "capella": {
       "success": 4,
@@ -28,9 +28,14 @@
       "reqs": 4
     },
     "enterprise_architect": {
-      "success": 0,
-      "fail": 1,
-      "reqs": 0
+      "success": 1,
+      "fail": 0,
+      "reqs": 3
+    },
+    "reqif_test": {
+      "success": 1,
+      "fail": 0,
+      "reqs": 50
     },
     "etcs": {
       "success": 9,
@@ -52,7 +57,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.38,
+      "parse_time_ms": 0.34,
       "error": "strictdoc: Start tag expected, '<' not found, line 1, column ",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -65,9 +70,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.26,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
+      "parse_time_ms": 0.37,
+      "error": "extraction: no spec objects in file",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -78,7 +83,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 2,
-      "parse_time_ms": 2.97,
+      "parse_time_ms": 2.21,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -95,14 +100,23 @@
       "file": "doors_05.reqif",
       "source": "strictdoc",
       "size_kb": 2.4,
-      "success": false,
-      "requirements_count": 0,
+      "success": true,
+      "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.72,
-      "error": "extraction: spec objects exist but no specifications/hierarchy",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 0.7,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_f05294de-d4cf-455d-9307-c130376dfd44",
+        "name": "",
+        "last_change": "2022-01-01T00:01:01.260Z",
+        "attributes": {
+          "_3ca983d9-5ec5-4752-898f-37ab52beafd0": "<div>&lt;New Header&gt; Template reqFile</div>",
+          "_1f20e97d-8b0f-4f64-a093-deedc195e91a": "<div>&lt;New Header&lt; Template reqFile</div>",
+          "_05ee3f1d-6c0c-4e86-8bca-67cc5355db9c": "<div/>"
+        }
+      }
     },
     {
       "file": "polarion_reqifz.reqifz",
@@ -112,7 +126,7 @@
       "requirements_count": 1,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.51,
+      "parse_time_ms": 1.53,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -136,53 +150,105 @@
       "file": "doors_01.reqif",
       "source": "strictdoc",
       "size_kb": 3.34,
-      "success": false,
-      "requirements_count": 0,
+      "success": true,
+      "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.51,
-      "error": "extraction: spec objects exist but no specifications/hierarchy",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 0.53,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_1_173759ff-cc02-4b85-8c95-457b785181b9",
+        "name": "",
+        "last_change": "2018-10-12T16:43:58",
+        "type": null,
+        "attributes": {
+          "ReqIF.ForeignCreatedOn": "2010-05-21T00:00:00"
+        }
+      }
     },
     {
       "file": "doors_06.reqif",
       "source": "strictdoc",
       "size_kb": 4.45,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.76,
-      "error": "extraction: '_82602fb9-8243-4753-a395-2714b4082b4c'",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 0.7,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_f05294de-d4cf-455d-9307-c130376dfd44",
+        "name": "",
+        "last_change": "2022-01-01T01:01:01.260Z",
+        "attributes": {
+          "_3ca983d9-5ec5-4752-898f-37ab52beafd0": "<div>&lt;A Header&gt; Subtitle</div>"
+        }
+      }
     },
     {
       "file": "doors_04.reqif",
       "source": "strictdoc",
       "size_kb": 4.71,
-      "success": false,
-      "requirements_count": 0,
+      "success": true,
+      "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.74,
-      "error": "extraction: spec objects exist but no specifications/hierarchy",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 0.69,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_f05294de-d4cf-455d-9307-c130376dfd44",
+        "name": "",
+        "last_change": "2022-01-01T00:01:01.260Z",
+        "attributes": {
+          "_3ca983d9-5ec5-4752-898f-37ab52beafd0": "<div>&lt;FOOOOO&gt; BAR</div>",
+          "_1f20e97d-8b0f-4f64-a093-deedc195e91a": "<div>&quot;New Header&quot; Template reqFile</div>",
+          "_dc18f331-d466-4de2-8182-0ef4ced9e174": "2022-01-01T00:01:01.260Z",
+          "_d2325dd8-82f3-43d6-b50b-6eb92820fd55": "XSX_6qwe82_363",
+          "_d09cedc9-c249-4ff3-affb-e863dcb732b9": "false",
+          "_05ee3f1d-6c0c-4e86-8bca-67cc5355db9c": "<div/>",
+          "_03fdb162-e81a-4724-809e-2b660994e18f": [
+            "_91651ec0-8832-4553-a201-cad184aa6fdb"
+          ],
+          "_136696e2-ada5-407a-b65b-e271a96ab983": "2022-01-01T00:01:01.260Z",
+          "_a450fa62-c5ac-43fc-9d08-c90432810d15": "0848764",
+          "_977a9dd7-8efb-40dd-8456-6e1b548a27c1": "SE6DAW",
+          "_318a9d27-fdd6-44ea-8117-5ecc5b6b422a": "VZ6KYN"
+        }
+      }
     },
     {
       "file": "doors_sample_small.reqif",
       "source": "strictdoc",
       "size_kb": 4.89,
-      "success": false,
-      "requirements_count": 0,
+      "success": true,
+      "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
       "parse_time_ms": 0.93,
-      "error": "extraction: spec objects exist but no specifications/hierarchy",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_39_53a1474b-8977-4ce1-8690-92ede741d39d",
+        "name": "",
+        "last_change": "2018-10-12T16:43:58",
+        "attributes": {
+          "_d1cbf7fe-5d6f-4d0a-b14a-c83e3b64477e_CREATEDBY": "<div>demo</div>",
+          "_3cad4538-378f-4df6-bf81-11423fa19ab5": "<div> </div>",
+          "_0683ad5c-be2a-46c4-aaf7-0c6ce8e436f2": "<div>Test Data: <br/></div>",
+          "_6970c4af-44c0-4f47-88cb-fbb230f9b695": "<div>Manually enter data <br/></div>",
+          "_1130028d-48cd-4e82-a8d5-a12991a94241": "<div>some data<br/>&#9;Subtitle<br/>some data<br/>&#9;More data<br/>&#9;&#9;using even more data</div>",
+          "_8816a980-e244-42a5-b7cb-f1107671be9f": "<div>Not Approved</div>",
+          "_424e8159-494a-474e-b3aa-e96757244cd7": "<div>Not Approved</div>",
+          "_d1cbf7fe-5d6f-4d0a-b14a-c83e3b64477e_LASTMODIFIEDBY": "<div>userName</div>",
+          "_d1cbf7fe-5d6f-4d0a-b14a-c83e3b64477e_LASTMODIFIEDON": "2011-08-11T00:00:00",
+          "_d1cbf7fe-5d6f-4d0a-b14a-c83e3b64477e_OBJECTTEXT": "<div>More info about the spec object</div>",
+          "_df868432-82f4-4ca1-8129-a4d1e49439f7": "<div>67</div>",
+          "_295e207f-e060-4b94-9845-26a5e6cf9d50": "true"
+        }
+      }
     },
     {
       "file": "rmf_02.reqif",
@@ -192,7 +258,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.72,
+      "parse_time_ms": 0.94,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -210,14 +276,23 @@
       "file": "eclipse_rmf_sample.reqif",
       "source": "lutaml",
       "size_kb": 5.1,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.38,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 0.68,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
+        "name": "Requirements document structure",
+        "last_change": "2005-05-31T10:58:13+02:00",
+        "type": "Example SpecType",
+        "attributes": {
+          "Author": "Max Mustermann",
+          "Age": "2"
+        }
+      }
     },
     {
       "file": "rmf_01.reqif",
@@ -227,7 +302,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.9,
+      "parse_time_ms": 0.75,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -245,14 +320,23 @@
       "file": "eclipse_rmf_specRelationTest.reqif",
       "source": "lutaml",
       "size_kb": 5.66,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.31,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 0.73,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
+        "name": "Requirements document structure",
+        "last_change": "2005-05-31T10:58:13+02:00",
+        "type": "Example SpecType",
+        "attributes": {
+          "Author": "Max Mustermann",
+          "Age": "2"
+        }
+      }
     },
     {
       "file": "doors_10_capella.reqif",
@@ -262,7 +346,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.91,
+      "parse_time_ms": 1.36,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -287,7 +371,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.98,
+      "parse_time_ms": 0.81,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -308,32 +392,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.13,
-      "error": null,
-      "error_level": null,
-      "sample_requirement": {
-        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
-        "name": "Requirement-1",
-        "last_change": "2017-11-14T15:44:26.000+02:00",
-        "type": "Requirement Type",
-        "attributes": {
-          "IE PUID": "<div>PUID-1</div>",
-          "ReqIF.Text": "<div>Requirement-1</div>",
-          "IE Object Type": [
-            "_gXZ9oMk3Eee5A_N9aQFa1w"
-          ]
-        }
-      }
-    },
-    {
-      "file": "Sample2.reqif",
-      "source": "capella",
-      "size_kb": 9.14,
-      "success": true,
-      "requirements_count": 2,
-      "links_count": 0,
-      "attachments_count": 0,
-      "parse_time_ms": 1.06,
+      "parse_time_ms": 0.84,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -376,6 +435,31 @@
       }
     },
     {
+      "file": "Sample2.reqif",
+      "source": "capella",
+      "size_kb": 9.14,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.03,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
+        "name": "Requirement-1",
+        "last_change": "2017-11-14T15:44:26.000+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "IE PUID": "<div>PUID-1</div>",
+          "ReqIF.Text": "<div>Requirement-1</div>",
+          "IE Object Type": [
+            "_gXZ9oMk3Eee5A_N9aQFa1w"
+          ]
+        }
+      }
+    },
+    {
       "file": "eclipse_ci_TC1000.reqif",
       "source": "strictdoc",
       "size_kb": 9.72,
@@ -383,7 +467,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.95,
+      "parse_time_ms": 0.93,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -440,7 +524,7 @@
       "requirements_count": 5,
       "links_count": 4,
       "attachments_count": 0,
-      "parse_time_ms": 0.95,
+      "parse_time_ms": 1.21,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -457,14 +541,29 @@
       "file": "polarion_sample.reqif",
       "source": "lutaml",
       "size_kb": 11.63,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.26,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 1.42,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "rmf-0c4d996f-31e9-41d5-bbf0-73c13fc68f3c",
+        "name": "SW: Lorem Ipsum",
+        "last_change": "2021-07-01T01:12:06.078Z",
+        "type": "System Requirement",
+        "attributes": {
+          "ReqIF.ForeignCreatedBy": "redacted@mail.com",
+          "ReqIF.ForeignID": "LOREM-818",
+          "Status": [
+            "rmf-9515c994-87fa-4dff-b66b-ad407bcffbf5"
+          ],
+          "ReqIF.ForeignCreatedOn": "2023-03-15T10:46:58.611Z",
+          "ReqIF.ChapterName": "SW: Lorem Ipsum",
+          "ReqIF.Text": "<div>The Lorem Ipsum shall do something.</div>"
+        }
+      }
     },
     {
       "file": "Sample3.reqif",
@@ -474,7 +573,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.27,
+      "parse_time_ms": 1.05,
       "error": "strictdoc: ",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -487,7 +586,7 @@
       "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.76,
+      "parse_time_ms": 1.95,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -509,14 +608,24 @@
       "file": "sparx_ea_01.reqif",
       "source": "strictdoc",
       "size_kb": 15.72,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 3,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.29,
-      "error": "extraction: 'FUNC-REQ-1'",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 1.21,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "R001",
+        "name": "Observe earths surface.",
+        "last_change": "2011-06-13T10:24:18+01:00",
+        "type": "Functional Requirement",
+        "attributes": {
+          "null": [
+            "Proposed"
+          ]
+        }
+      }
     },
     {
       "file": "eclipse_ci_TC1801.reqif",
@@ -526,7 +635,7 @@
       "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.85,
+      "parse_time_ms": 1.93,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -548,40 +657,73 @@
       "file": "eclipse_rmf_json.reqif",
       "source": "lutaml",
       "size_kb": 15.84,
-      "success": false,
-      "requirements_count": 0,
+      "success": true,
+      "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.39,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 1.67,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_RB77n1yxEeumRtWSJE-orw",
+        "name": "",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC18xx SpecObjectType",
+        "attributes": {
+          "ReqIF.Name": "<p>Obj-01</p>",
+          "A1": "no change",
+          "A2": "no change",
+          "E1": [
+            "_RB77ZlyxEeumRtWSJE-orw"
+          ]
+        }
+      }
     },
     {
       "file": "example.reqif.xml",
       "source": "enterprise_architect",
       "size_kb": 16.02,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 3,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.48,
-      "error": "extraction: 'FUNC-REQ-1'",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 1.17,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "R001",
+        "name": "Observe earths surface.",
+        "last_change": "2011-06-13T10:24:18+01:00",
+        "type": "Functional Requirement",
+        "attributes": {
+          "null": [
+            "Proposed"
+          ]
+        }
+      }
     },
     {
       "file": "ea_example.reqif",
       "source": "lutaml",
       "size_kb": 16.13,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 3,
+      "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.34,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 1.56,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "R001",
+        "name": "Observe earths surface.",
+        "last_change": "2011-06-13T10:24:18+01:00",
+        "type": "Functional Requirement",
+        "attributes": {
+          "null": [
+            "Proposed"
+          ]
+        }
+      }
     },
     {
       "file": "eclipse_ci_TC1100.reqif",
@@ -591,7 +733,7 @@
       "requirements_count": 5,
       "links_count": 3,
       "attachments_count": 0,
-      "parse_time_ms": 1.67,
+      "parse_time_ms": 1.92,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -612,14 +754,46 @@
       "file": "sdoc_sample.reqif",
       "source": "lutaml",
       "size_kb": 22.65,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 18,
+      "links_count": 14,
       "attachments_count": 0,
-      "parse_time_ms": 0.34,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 2.53,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "SPEC-HIERARCHY-8ce95433-6437-436d-a701-32940769068b",
+        "name": "Section 1",
+        "type": "REQUIREMENT",
+        "attributes": {
+          "ReqIF.ChapterName": "Section 1"
+        }
+      }
+    },
+    {
+      "file": "Apgyvendinimo_sistema.reqif",
+      "source": "reqif_test",
+      "size_kb": 121.94,
+      "success": true,
+      "requirements_count": 50,
+      "links_count": 45,
+      "attachments_count": 0,
+      "parse_time_ms": 13.3,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_4a224f86-e68e-48db-b6ee-bfb13befb4d0",
+        "name": "<div>\u012evadas</div>",
+        "last_change": "2014-05-24T16:15:06",
+        "type": null,
+        "attributes": {
+          "ReqIF.ForeignID": "1",
+          "ReqIF.ForeignCreatedOn": "2014-05-24T00:00:00",
+          "ReqIF.ForeignModifiedOn": "2014-05-24T00:00:00",
+          "ReqIF.ChapterName": "<div>\u012evadas</div>",
+          "ReqIF.Text": "<div>Darbo tikslas sukurti sistem\u0105 galin\u010di\u0105 kontroliuoti olimpini\u0173 \u017eaidini\u0173 gyventoj\u0173 srautus. Parinkti tinkamas apgyvendinimo vietas, nustatyti vizito trukmes, surinkti informacij\u0105 apie gyventoj\u0105.</div>"
+        }
+      }
     },
     {
       "file": "eclipse_ci_TC1200.reqif",
@@ -629,7 +803,7 @@
       "requirements_count": 44,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 20.02,
+      "parse_time_ms": 18.33,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -647,14 +821,25 @@
       "file": "reqif_studio_01.reqif",
       "source": "strictdoc",
       "size_kb": 187.49,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 137,
+      "links_count": 128,
       "attachments_count": 0,
-      "parse_time_ms": 18.77,
-      "error": "extraction: '_B9RbAGunEeuNUYnTveUm8Q'",
-      "error_level": "extraction",
-      "sample_requirement": null
+      "parse_time_ms": 22.31,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_gFhrb2ojEeuExICsU7Acmg",
+        "name": "<div>...Anonymized...</div>",
+        "last_change": "2021-02-08T16:37:07.454+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "ReqIF.ChapterName": "<div>...Anonymized...</div>",
+          "ReqIF.ForeignID": "...Anonymized...",
+          "ReqIF.Text": "<div>...Anonymized...</div>",
+          "NOTES": "...Anonymized..."
+        }
+      }
     },
     {
       "file": "polarion_01.reqif",
@@ -664,7 +849,7 @@
       "requirements_count": 101,
       "links_count": 90,
       "attachments_count": 0,
-      "parse_time_ms": 17.11,
+      "parse_time_ms": 13.86,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -688,7 +873,7 @@
       "requirements_count": 43,
       "links_count": 32,
       "attachments_count": 0,
-      "parse_time_ms": 18.57,
+      "parse_time_ms": 20.32,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -710,14 +895,25 @@
       "file": "antcc_MAG8000.reqif",
       "source": "lutaml",
       "size_kb": 244.17,
-      "success": false,
-      "requirements_count": 0,
-      "links_count": 0,
+      "success": true,
+      "requirements_count": 102,
+      "links_count": 100,
       "attachments_count": 0,
-      "parse_time_ms": 1.46,
-      "error": "XML: comments before declaration",
-      "error_level": "strictdoc",
-      "sample_requirement": null
+      "parse_time_ms": 20.46,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "rmf-eb772bcf-1529-4999-90b8-1760cdc2999b",
+        "name": "feature specification baseline 4",
+        "last_change": "2022-06-22T11:22:37.965+02:00",
+        "type": "Heading",
+        "attributes": {
+          "ReqIF.ForeignCreatedOn": "2021-01-25T09:30:26.358+01:00",
+          "ReqIF.ForeignID": "adr-10312",
+          "ReqIF.ChapterName": "feature specification baseline 4",
+          "ReqIF.ForeignCreatedBy": "Z00407EJ"
+        }
+      }
     },
     {
       "file": "doors_sample_large.reqif",
@@ -727,7 +923,7 @@
       "requirements_count": 3,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 18.25,
+      "parse_time_ms": 20.07,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -753,7 +949,7 @@
       "requirements_count": 62,
       "links_count": 61,
       "attachments_count": 0,
-      "parse_time_ms": 31.87,
+      "parse_time_ms": 35.45,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -787,7 +983,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 39.28,
+      "parse_time_ms": 34.05,
       "error": "XML: invalid root tag (RIF vs REQ-IF)",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -800,7 +996,7 @@
       "requirements_count": 299,
       "links_count": 298,
       "attachments_count": 0,
-      "parse_time_ms": 167.12,
+      "parse_time_ms": 162.0,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -834,7 +1030,7 @@
       "requirements_count": 1162,
       "links_count": 1161,
       "attachments_count": 0,
-      "parse_time_ms": 1099.11,
+      "parse_time_ms": 1102.08,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -868,7 +1064,7 @@
       "requirements_count": 1392,
       "links_count": 1391,
       "attachments_count": 0,
-      "parse_time_ms": 1443.59,
+      "parse_time_ms": 1526.83,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -902,7 +1098,7 @@
       "requirements_count": 1341,
       "links_count": 1340,
       "attachments_count": 0,
-      "parse_time_ms": 1588.1,
+      "parse_time_ms": 1600.91,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -936,7 +1132,7 @@
       "requirements_count": 2411,
       "links_count": 2410,
       "attachments_count": 0,
-      "parse_time_ms": 4329.13,
+      "parse_time_ms": 4677.56,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -970,7 +1166,7 @@
       "requirements_count": 3757,
       "links_count": 3755,
       "attachments_count": 0,
-      "parse_time_ms": 10790.2,
+      "parse_time_ms": 12040.39,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1004,7 +1200,7 @@
       "requirements_count": 6402,
       "links_count": 6401,
       "attachments_count": 0,
-      "parse_time_ms": 31325.0,
+      "parse_time_ms": 32268.5,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1038,7 +1234,7 @@
       "requirements_count": 6742,
       "links_count": 6741,
       "attachments_count": 0,
-      "parse_time_ms": 35645.95,
+      "parse_time_ms": 34018.87,
       "error": null,
       "error_level": null,
       "sample_requirement": {

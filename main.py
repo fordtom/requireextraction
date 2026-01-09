@@ -4,25 +4,117 @@ from pathlib import Path
 from reqif.parser import ReqIFParser, ReqIFZParser
 
 
-def extract_requirement(bundle, node):
-    """Extract a requirement object from a hierarchy node."""
-    spec_object = bundle.get_spec_object_by_ref(node.spec_object)
-    if not spec_object:
-        return None
+def preprocess_reqif_xml(content: str) -> str:
+    """Preprocess ReqIF XML content to handle common issues.
 
-    spec_type = bundle.get_spec_object_type_by_ref(spec_object.spec_object_type)
-    if not spec_type:
-        return None
+    - Strips XML comments before the XML declaration (invalid but common)
+    - Preserves all other content including comments after declaration
+    """
+    # Find the XML declaration
+    xml_decl_match = re.search(r'<\?xml[^?]*\?>', content)
+    if xml_decl_match:
+        # Return content starting from XML declaration
+        return content[xml_decl_match.start():]
+    return content
 
-    # Build attribute map
+
+def extract_requirement_from_spec_object(bundle, spec_object):
+    """Extract a requirement directly from a spec object (no hierarchy node).
+
+    Used when files have spec objects but no specification hierarchy.
+    """
+    spec_type = None
+    if spec_object.spec_object_type:
+        spec_type = bundle.get_spec_object_type_by_ref(spec_object.spec_object_type)
+
+    # Build attribute map from spec type if available
     attr_def_map = {}
-    if hasattr(spec_type, "attribute_definitions"):
+    if spec_type and hasattr(spec_type, "attribute_definitions") and spec_type.attribute_definitions:
         for attr_def in spec_type.attribute_definitions:
             attr_def_map[attr_def.identifier] = attr_def
 
     # Extract attributes
     attrs = {}
-    for attr in spec_object.attributes:
+    if spec_object.attributes:
+        for attr in spec_object.attributes:
+            attr_def = attr_def_map.get(attr.definition_ref)
+            attr_name = (
+                attr_def.long_name
+                if attr_def and hasattr(attr_def, "long_name")
+                else attr.definition_ref
+            )
+
+            if isinstance(attr.value, list):
+                attrs[attr_name] = attr.value
+            elif attr.value_stripped_xhtml:
+                attrs[attr_name] = attr.value_stripped_xhtml
+            else:
+                attrs[attr_name] = attr.value
+
+    # Clean HTML tags from text
+    def clean_html(html_str):
+        if not html_str:
+            return ""
+        text_content = re.sub(r"<[^>]+>", "", html_str)
+        return " ".join(text_content.split())
+
+    # Determine name from various sources
+    chapter_name = attrs.get("ReqIF.ChapterName", "")
+    text = attrs.get("ReqIF.Text", "")
+    long_name = spec_object.long_name or ""
+
+    if chapter_name:
+        name = chapter_name
+    elif text:
+        name = clean_html(text)
+    elif long_name:
+        name = long_name
+    else:
+        name = ""
+
+    req = {
+        "id": spec_object.identifier,
+        "name": name,
+    }
+
+    if spec_object.last_change:
+        req["last_change"] = spec_object.last_change
+
+    if spec_type and hasattr(spec_type, "long_name"):
+        req["type"] = spec_type.long_name
+
+    req["attributes"] = attrs
+
+    return req
+
+
+def extract_requirement(bundle, node):
+    """Extract a requirement object from a hierarchy node."""
+    try:
+        spec_object = bundle.get_spec_object_by_ref(node.spec_object)
+    except KeyError:
+        # Spec object reference doesn't exist (file inconsistency)
+        return None
+
+    if not spec_object:
+        return None
+
+    spec_type = None
+    if spec_object.spec_object_type:
+        try:
+            spec_type = bundle.get_spec_object_type_by_ref(spec_object.spec_object_type)
+        except KeyError:
+            pass  # Type not found, continue without it
+
+    # Build attribute map
+    attr_def_map = {}
+    if spec_type and hasattr(spec_type, "attribute_definitions") and spec_type.attribute_definitions:
+        for attr_def in spec_type.attribute_definitions:
+            attr_def_map[attr_def.identifier] = attr_def
+
+    # Extract attributes
+    attrs = {}
+    for attr in (spec_object.attributes or []):
         attr_def = attr_def_map.get(attr.definition_ref)
         attr_name = (
             attr_def.long_name
@@ -82,47 +174,78 @@ def extract_requirement(bundle, node):
     return req
 
 
-def process_reqif_file(file_path):
-    """Process a ReqIF file and return flat structure with requirements and links."""
+def process_reqif_file(file_path, preprocess=True):
+    """Process a ReqIF file and return flat structure with requirements and links.
+
+    Args:
+        file_path: Path to the .reqif file
+        preprocess: If True, preprocess XML to strip leading comments
+
+    Returns:
+        Dict with 'requirements' and 'links', or None on error
+    """
     try:
-        bundle = ReqIFParser.parse(file_path)
+        # Optionally preprocess to handle XML comments before declaration
+        if preprocess:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            content = preprocess_reqif_xml(content)
+            bundle = ReqIFParser.parse_from_string(content)
+        else:
+            bundle = ReqIFParser.parse(file_path)
+
         requirements = []
         links = []
 
-        # Process all specifications
-        for specification in bundle.core_content.req_if_content.specifications:
-            # Collect all nodes with their parent relationships
-            node_map = {}  # node_id -> node
-            parent_map = {}  # child_id -> parent_id
+        content = bundle.core_content.req_if_content
+        specifications = content.specifications if content else None
 
-            def collect_nodes(node, parent_id=None):
-                node_map[node.identifier] = node
-                if parent_id:
-                    parent_map[node.identifier] = parent_id
+        extracted_from_hierarchy = False
+        if specifications:
+            # Standard path: iterate through specification hierarchy
+            for specification in specifications:
+                node_map = {}  # node_id -> node
+                parent_map = {}  # child_id -> parent_id
 
-                if node.children:
-                    for child in node.children:
-                        collect_nodes(child, node.identifier)
+                def collect_nodes(node, parent_id=None):
+                    node_map[node.identifier] = node
+                    if parent_id:
+                        parent_map[node.identifier] = parent_id
 
-            # Collect all nodes from root nodes
-            for root_node in bundle.iterate_specification_hierarchy(specification):
-                collect_nodes(root_node)
+                    if node.children:
+                        for child in node.children:
+                            collect_nodes(child, node.identifier)
 
-            # Extract requirements
-            for node_id, node in node_map.items():
-                req = extract_requirement(bundle, node)
+                # Collect all nodes from root nodes
+                for root_node in bundle.iterate_specification_hierarchy(specification):
+                    collect_nodes(root_node)
+
+                # Extract requirements
+                for node_id, node in node_map.items():
+                    req = extract_requirement(bundle, node)
+                    if req:
+                        requirements.append(req)
+                        extracted_from_hierarchy = True
+
+                # Build links
+                for child_id, parent_id in parent_map.items():
+                    links.append(
+                        {
+                            "source": parent_id,
+                            "type": "hierarchy",
+                            "target": child_id,
+                        }
+                    )
+
+        # Fallback: no hierarchy found (either no specs, or specs with empty/broken hierarchy)
+        if not extracted_from_hierarchy and content and content.spec_objects:
+            # Fallback: no specifications, but have spec objects
+            # Treat all spec objects as a flat list (no hierarchy)
+            for spec_object in content.spec_objects:
+                req = extract_requirement_from_spec_object(bundle, spec_object)
                 if req:
                     requirements.append(req)
-
-            # Build links
-            for child_id, parent_id in parent_map.items():
-                links.append(
-                    {
-                        "source": parent_id,
-                        "type": "hierarchy",
-                        "target": child_id,
-                    }
-                )
+            # No hierarchy links in this case
 
         return {"requirements": requirements, "links": links}
 

@@ -21,6 +21,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 from reqif.parser import ReqIFParser, ReqIFZParser
 from reqif.models.error_handling import ReqIFXMLParsingError
 
+from main import preprocess_reqif_xml, extract_requirement_from_spec_object
+
 
 @dataclass
 class ParseResult:
@@ -48,13 +50,17 @@ def test_file(file_path: Path) -> ParseResult:
     size_kb = file_path.stat().st_size / 1024
     start_time = time.time()
 
-    # Step 1: Test strictdoc parsing
+    # Step 1: Test strictdoc parsing (with preprocessing for XML comments)
     try:
         if file_path.suffix.lower() == '.reqifz':
             z_bundle = ReqIFZParser.parse(str(file_path))
             bundles = list(z_bundle.reqif_bundles.values())
         else:
-            bundle = ReqIFParser.parse(str(file_path))
+            # Preprocess to handle XML comments before declaration
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            content = preprocess_reqif_xml(content)
+            bundle = ReqIFParser.parse_from_string(content)
             bundles = [bundle]
     except (ReqIFXMLParsingError, Exception) as e:
         parse_time_ms = (time.time() - start_time) * 1000
@@ -91,37 +97,49 @@ def test_file(file_path: Path) -> ParseResult:
             if bundle.core_content is None or bundle.core_content.req_if_content is None:
                 continue
 
-            specs = bundle.core_content.req_if_content.specifications
-            if specs is None:
-                # File parsed but has no specifications
-                continue
+            content = bundle.core_content.req_if_content
+            specs = content.specifications if content else None
 
-            for specification in specs:
-                node_map = {}
-                parent_map = {}
+            # Track if we successfully extracted any requirements from hierarchy
+            extracted_from_hierarchy = False
+            if specs:
+                for specification in specs:
+                    # Standard path: process specifications with hierarchy
+                    node_map = {}
+                    parent_map = {}
 
-                def collect_nodes(node, parent_id=None):
-                    node_map[node.identifier] = node
-                    if parent_id:
-                        parent_map[node.identifier] = parent_id
-                    if node.children:
-                        for child in node.children:
-                            collect_nodes(child, node.identifier)
+                    def collect_nodes(node, parent_id=None):
+                        node_map[node.identifier] = node
+                        if parent_id:
+                            parent_map[node.identifier] = parent_id
+                        if node.children:
+                            for child in node.children:
+                                collect_nodes(child, node.identifier)
 
-                for root_node in bundle.iterate_specification_hierarchy(specification):
-                    collect_nodes(root_node)
+                    for root_node in bundle.iterate_specification_hierarchy(specification):
+                        collect_nodes(root_node)
 
-                for node_id, node in node_map.items():
-                    req = extract_requirement(bundle, node)
+                    for node_id, node in node_map.items():
+                        req = extract_requirement(bundle, node)
+                        if req:
+                            all_requirements.append(req)
+                            extracted_from_hierarchy = True
+
+                    for child_id, parent_id in parent_map.items():
+                        all_links.append({
+                            "source": parent_id,
+                            "type": "hierarchy",
+                            "target": child_id,
+                        })
+
+            # Fallback: no requirements from hierarchy (empty specs, broken refs, or no specs)
+            if not extracted_from_hierarchy and content and content.spec_objects:
+                # Fallback: no specifications but have spec objects
+                # Treat all spec objects as a flat list (no hierarchy)
+                for spec_object in content.spec_objects:
+                    req = extract_requirement_from_spec_object(bundle, spec_object)
                     if req:
                         all_requirements.append(req)
-
-                for child_id, parent_id in parent_map.items():
-                    all_links.append({
-                        "source": parent_id,
-                        "type": "hierarchy",
-                        "target": child_id,
-                    })
 
         # Handle reqifz attachments
         if file_path.suffix.lower() == '.reqifz' and hasattr(z_bundle, 'attachments') and z_bundle.attachments:
