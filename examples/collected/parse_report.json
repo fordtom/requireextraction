@@ -1,10 +1,10 @@
 {
   "summary": {
-    "total_files": 48,
-    "successful": 44,
-    "failed": 4,
-    "total_requirements": 24133,
-    "total_links": 23987
+    "total_files": 59,
+    "successful": 48,
+    "failed": 11,
+    "total_requirements": 24161,
+    "total_links": 24005
   },
   "by_source": {
     "strictdoc": {
@@ -16,6 +16,16 @@
       "success": 8,
       "fail": 1,
       "reqs": 135
+    },
+    "eclipse_rmf": {
+      "success": 1,
+      "fail": 4,
+      "reqs": 2
+    },
+    "reqifsharp": {
+      "success": 3,
+      "fail": 3,
+      "reqs": 26
     },
     "capella": {
       "success": 4,
@@ -57,7 +67,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.34,
+      "parse_time_ms": 0.32,
       "error": "strictdoc: Start tag expected, '<' not found, line 1, column ",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -70,7 +80,20 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.37,
+      "parse_time_ms": 0.31,
+      "error": "extraction: no spec objects in file",
+      "error_level": "extraction",
+      "sample_requirement": null
+    },
+    {
+      "file": "SimpleReqIFWithUnknowToolExtensions.reqif",
+      "source": "eclipse_rmf",
+      "size_kb": 0.94,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.46,
       "error": "extraction: no spec objects in file",
       "error_level": "extraction",
       "sample_requirement": null
@@ -83,7 +106,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 2,
-      "parse_time_ms": 2.21,
+      "parse_time_ms": 1.96,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -126,7 +149,7 @@
       "requirements_count": 1,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.53,
+      "parse_time_ms": 1.5,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -175,7 +198,7 @@
       "requirements_count": 1,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.7,
+      "parse_time_ms": 0.64,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -188,6 +211,19 @@
       }
     },
     {
+      "file": "Datatype-Demo-XhtML-Fault.reqif",
+      "source": "reqifsharp",
+      "size_kb": 4.49,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.63,
+      "error": "strictdoc: 'NoneType' object has no attribute 'nsmap'",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
       "file": "doors_04.reqif",
       "source": "strictdoc",
       "size_kb": 4.71,
@@ -195,7 +231,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.69,
+      "parse_time_ms": 0.67,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -227,7 +263,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.93,
+      "parse_time_ms": 0.85,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -258,7 +294,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.94,
+      "parse_time_ms": 0.66,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -280,7 +316,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.68,
+      "parse_time_ms": 0.67,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -295,6 +331,40 @@
       }
     },
     {
+      "file": "TC1300_without_namespaceprefix.reqif",
+      "source": "eclipse_rmf",
+      "size_kb": 5.25,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.86,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1300_SpecHierarchy1",
+        "name": "TC1300 SpecHierarchy1",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1300 SpecObjectType",
+        "attributes": {
+          "TC1000 String": "Requirement 1"
+        }
+      }
+    },
+    {
+      "file": "TC1300_with_short_namespaceprefix.reqif",
+      "source": "eclipse_rmf",
+      "size_kb": 5.5,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.25,
+      "error": "XML: invalid root tag (RIF vs REQ-IF)",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
       "file": "rmf_01.reqif",
       "source": "strictdoc",
       "size_kb": 5.52,
@@ -302,7 +372,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.75,
+      "parse_time_ms": 0.65,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -324,7 +394,7 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.73,
+      "parse_time_ms": 0.67,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -346,7 +416,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.36,
+      "parse_time_ms": 0.8,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -364,6 +434,19 @@
       }
     },
     {
+      "file": "TC1300_with_namespaceprefix.reqif",
+      "source": "eclipse_rmf",
+      "size_kb": 6.0,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.23,
+      "error": "XML: invalid root tag (RIF vs REQ-IF)",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
       "file": "eclipse_ci_TC1300.reqif",
       "source": "strictdoc",
       "size_kb": 6.27,
@@ -371,7 +454,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.81,
+      "parse_time_ms": 0.71,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -385,6 +468,19 @@
       }
     },
     {
+      "file": "TC1200_E0000_S10_Reference.reqif",
+      "source": "eclipse_rmf",
+      "size_kb": 6.29,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.25,
+      "error": "XML: invalid root tag (RIF vs REQ-IF)",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
       "file": "Sample.reqif",
       "source": "capella",
       "size_kb": 6.71,
@@ -392,7 +488,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.84,
+      "parse_time_ms": 0.79,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -417,7 +513,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.02,
+      "parse_time_ms": 1.18,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -442,7 +538,7 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.03,
+      "parse_time_ms": 1.02,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -467,7 +563,7 @@
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.93,
+      "parse_time_ms": 1.09,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -517,6 +613,31 @@
       }
     },
     {
+      "file": "DefaultValueDemo.reqif",
+      "source": "reqifsharp",
+      "size_kb": 10.37,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 1,
+      "attachments_count": 0,
+      "parse_time_ms": 1.31,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_474c3c02-89db-4e39-b800-cfc9f081b3a0",
+        "name": "<div>TITEL<br/></div>",
+        "last_change": "2021-06-11T15:52:59+02:00",
+        "type": "OBJECT-TYPE",
+        "attributes": {
+          "Object Identifier": "59",
+          "ReqIF.ChapterName": "<div>TITEL<br/></div>",
+          "Relevant f\u00fcr Autor": [
+            "_42b0c000-d846-48f1-9a65-37e9b2f3a719"
+          ]
+        }
+      }
+    },
+    {
       "file": "eclipse_ci_TC1400.reqif",
       "source": "strictdoc",
       "size_kb": 10.4,
@@ -524,7 +645,7 @@
       "requirements_count": 5,
       "links_count": 4,
       "attachments_count": 0,
-      "parse_time_ms": 1.21,
+      "parse_time_ms": 0.94,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -545,7 +666,7 @@
       "requirements_count": 1,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.42,
+      "parse_time_ms": 1.18,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -573,7 +694,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.05,
+      "parse_time_ms": 1.11,
       "error": "strictdoc: ",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -586,7 +707,7 @@
       "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.95,
+      "parse_time_ms": 1.59,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -612,7 +733,7 @@
       "requirements_count": 3,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.21,
+      "parse_time_ms": 1.18,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -635,7 +756,7 @@
       "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.93,
+      "parse_time_ms": 1.82,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -661,7 +782,7 @@
       "requirements_count": 6,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.67,
+      "parse_time_ms": 1.81,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -687,7 +808,7 @@
       "requirements_count": 3,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.17,
+      "parse_time_ms": 1.18,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -710,7 +831,7 @@
       "requirements_count": 3,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.56,
+      "parse_time_ms": 1.2,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -726,6 +847,27 @@
       }
     },
     {
+      "file": "testreqif.reqif",
+      "source": "reqifsharp",
+      "size_kb": 16.3,
+      "success": true,
+      "requirements_count": 3,
+      "links_count": 1,
+      "attachments_count": 0,
+      "parse_time_ms": 1.59,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "R001",
+        "name": "Observe earths surface.",
+        "last_change": "2011-06-13T10:24:18+01:00",
+        "type": "Functional Requirement",
+        "attributes": {
+          "null": "<div>Description of the SpecObject that includes formatted tables and/or style:<ul class=\"noindent\"><li>Element 1</li><li>Element 2</li></ul></div>"
+        }
+      }
+    },
+    {
       "file": "eclipse_ci_TC1100.reqif",
       "source": "strictdoc",
       "size_kb": 17.79,
@@ -733,7 +875,7 @@
       "requirements_count": 5,
       "links_count": 3,
       "attachments_count": 0,
-      "parse_time_ms": 1.92,
+      "parse_time_ms": 2.31,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -758,7 +900,7 @@
       "requirements_count": 18,
       "links_count": 14,
       "attachments_count": 0,
-      "parse_time_ms": 2.53,
+      "parse_time_ms": 1.66,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -771,6 +913,54 @@
       }
     },
     {
+      "file": "Datatype-Demo.reqif",
+      "source": "reqifsharp",
+      "size_kb": 27.75,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.32,
+      "error": "strictdoc: 'NoneType' object has no attribute 'nsmap'",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
+      "file": "output.reqif",
+      "source": "reqifsharp",
+      "size_kb": 30.18,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.89,
+      "error": "strictdoc: ",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
+      "file": "ProR_Traceability-Template-v1.0.reqif",
+      "source": "reqifsharp",
+      "size_kb": 48.18,
+      "success": true,
+      "requirements_count": 21,
+      "links_count": 16,
+      "attachments_count": 0,
+      "parse_time_ms": 4.33,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_o7scT6dbEeafNduaIhMwQg",
+        "name": "<div>Stakeholder Requirements</div>",
+        "last_change": "2016-11-10T16:37:50.954+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "ReqIF.ChapterName": "<div>Stakeholder Requirements</div>",
+          "ReqIF.ForeignID": "REQ-1"
+        }
+      }
+    },
+    {
       "file": "Apgyvendinimo_sistema.reqif",
       "source": "reqif_test",
       "size_kb": 121.94,
@@ -778,7 +968,7 @@
       "requirements_count": 50,
       "links_count": 45,
       "attachments_count": 0,
-      "parse_time_ms": 13.3,
+      "parse_time_ms": 13.57,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -803,7 +993,7 @@
       "requirements_count": 44,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 18.33,
+      "parse_time_ms": 17.16,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -825,7 +1015,7 @@
       "requirements_count": 137,
       "links_count": 128,
       "attachments_count": 0,
-      "parse_time_ms": 22.31,
+      "parse_time_ms": 21.19,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -849,7 +1039,7 @@
       "requirements_count": 101,
       "links_count": 90,
       "attachments_count": 0,
-      "parse_time_ms": 13.86,
+      "parse_time_ms": 13.76,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -873,7 +1063,7 @@
       "requirements_count": 43,
       "links_count": 32,
       "attachments_count": 0,
-      "parse_time_ms": 20.32,
+      "parse_time_ms": 20.23,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -899,7 +1089,7 @@
       "requirements_count": 102,
       "links_count": 100,
       "attachments_count": 0,
-      "parse_time_ms": 20.46,
+      "parse_time_ms": 20.75,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -923,7 +1113,7 @@
       "requirements_count": 3,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 20.07,
+      "parse_time_ms": 19.57,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -949,7 +1139,7 @@
       "requirements_count": 62,
       "links_count": 61,
       "attachments_count": 0,
-      "parse_time_ms": 35.45,
+      "parse_time_ms": 34.21,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -983,7 +1173,7 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 34.05,
+      "parse_time_ms": 31.9,
       "error": "XML: invalid root tag (RIF vs REQ-IF)",
       "error_level": "strictdoc",
       "sample_requirement": null
@@ -996,7 +1186,7 @@
       "requirements_count": 299,
       "links_count": 298,
       "attachments_count": 0,
-      "parse_time_ms": 162.0,
+      "parse_time_ms": 161.72,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1030,7 +1220,7 @@
       "requirements_count": 1162,
       "links_count": 1161,
       "attachments_count": 0,
-      "parse_time_ms": 1102.08,
+      "parse_time_ms": 1112.79,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1064,7 +1254,7 @@
       "requirements_count": 1392,
       "links_count": 1391,
       "attachments_count": 0,
-      "parse_time_ms": 1526.83,
+      "parse_time_ms": 1415.91,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1098,7 +1288,7 @@
       "requirements_count": 1341,
       "links_count": 1340,
       "attachments_count": 0,
-      "parse_time_ms": 1600.91,
+      "parse_time_ms": 1588.5,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1132,7 +1322,7 @@
       "requirements_count": 2411,
       "links_count": 2410,
       "attachments_count": 0,
-      "parse_time_ms": 4677.56,
+      "parse_time_ms": 3987.22,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1166,7 +1356,7 @@
       "requirements_count": 3757,
       "links_count": 3755,
       "attachments_count": 0,
-      "parse_time_ms": 12040.39,
+      "parse_time_ms": 10063.3,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1200,7 +1390,7 @@
       "requirements_count": 6402,
       "links_count": 6401,
       "attachments_count": 0,
-      "parse_time_ms": 32268.5,
+      "parse_time_ms": 32864.33,
       "error": null,
       "error_level": null,
       "sample_requirement": {
@@ -1234,7 +1424,7 @@
       "requirements_count": 6742,
       "links_count": 6741,
       "attachments_count": 0,
-      "parse_time_ms": 34018.87,
+      "parse_time_ms": 37569.82,
       "error": null,
       "error_level": null,
       "sample_requirement": {
