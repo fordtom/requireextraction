@@ -1,21 +1,21 @@
 {
   "summary": {
-    "total_files": 33,
-    "successful": 18,
-    "failed": 15,
-    "total_requirements": 10587,
-    "total_links": 10544
+    "total_files": 47,
+    "successful": 28,
+    "failed": 19,
+    "total_requirements": 23801,
+    "total_links": 23693
   },
   "by_source": {
+    "strictdoc": {
+      "success": 13,
+      "fail": 8,
+      "reqs": 180
+    },
     "lutaml": {
       "success": 1,
       "fail": 8,
       "reqs": 1
-    },
-    "strictdoc": {
-      "success": 5,
-      "fail": 4,
-      "reqs": 110
     },
     "capella": {
       "success": 4,
@@ -33,9 +33,9 @@
       "reqs": 0
     },
     "etcs": {
-      "success": 7,
+      "success": 9,
       "fail": 0,
-      "reqs": 10424
+      "reqs": 23568
     },
     "automotive": {
       "success": 0,
@@ -45,6 +45,19 @@
   },
   "results": [
     {
+      "file": "eclipse_ci_TC1700.reqif",
+      "source": "strictdoc",
+      "size_kb": 0.01,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.38,
+      "error": "strictdoc: Start tag expected, '<' not found, line 1, column ",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
       "file": "minimal.reqif",
       "source": "lutaml",
       "size_kb": 0.24,
@@ -52,8 +65,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.47,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.26,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -64,8 +78,9 @@
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 2,
-      "parse_time_ms": 4.34,
+      "parse_time_ms": 2.97,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "ID_TC1700_SpecHierarchy1",
         "name": "TC1700 SpecHierarchy1",
@@ -73,8 +88,7 @@
         "type": "TC1700 SpecObjectType",
         "attributes": {
           "TC1000 String": "Requirement 1"
-        },
-        "source_file": "sample.reqif"
+        }
       }
     },
     {
@@ -85,8 +99,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.83,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.72,
+      "error": "extraction: spec objects exist but no specifications/hierarchy",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -97,8 +112,9 @@
       "requirements_count": 1,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 1.49,
+      "parse_time_ms": 1.51,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "rmf-0c4d996f-31e9-41d5-bbf0-73c13fc68f3c",
         "name": "SW: Lorem Ipsum",
@@ -113,9 +129,21 @@
           "ReqIF.ForeignCreatedOn": "2023-03-15T10:46:58.611Z",
           "ReqIF.ChapterName": "SW: Lorem Ipsum",
           "ReqIF.Text": "<div>The Lorem Ipsum shall do something.</div>"
-        },
-        "source_file": "sample1_polarion.reqif"
+        }
       }
+    },
+    {
+      "file": "doors_01.reqif",
+      "source": "strictdoc",
+      "size_kb": 3.34,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.51,
+      "error": "extraction: spec objects exist but no specifications/hierarchy",
+      "error_level": "extraction",
+      "sample_requirement": null
     },
     {
       "file": "doors_06.reqif",
@@ -125,8 +153,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.93,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.76,
+      "error": "extraction: '_82602fb9-8243-4753-a395-2714b4082b4c'",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -137,8 +166,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.76,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.74,
+      "error": "extraction: spec objects exist but no specifications/hierarchy",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -149,8 +179,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.2,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.93,
+      "error": "extraction: spec objects exist but no specifications/hierarchy",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -161,8 +192,9 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.94,
+      "parse_time_ms": 0.72,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
         "name": "Requirements document structure",
@@ -182,8 +214,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.3,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.38,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -194,8 +227,9 @@
       "requirements_count": 2,
       "links_count": 1,
       "attachments_count": 0,
-      "parse_time_ms": 0.71,
+      "parse_time_ms": 0.9,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
         "name": "Requirements document structure",
@@ -215,20 +249,22 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.28,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.31,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
-      "file": "Sample.reqif",
-      "source": "capella",
-      "size_kb": 6.71,
+      "file": "doors_10_capella.reqif",
+      "source": "strictdoc",
+      "size_kb": 5.97,
       "success": true,
       "requirements_count": 1,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.87,
+      "parse_time_ms": 0.91,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
         "name": "Requirement-1",
@@ -244,15 +280,37 @@
       }
     },
     {
-      "file": "Sample1.reqif",
-      "source": "capella",
-      "size_kb": 9.14,
+      "file": "eclipse_ci_TC1300.reqif",
+      "source": "strictdoc",
+      "size_kb": 6.27,
       "success": true,
       "requirements_count": 2,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.06,
+      "parse_time_ms": 0.98,
       "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1300_SpecHierarchy1",
+        "name": "TC1300 SpecHierarchy1",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1300 SpecObjectType",
+        "attributes": {
+          "TC1300 String": "Requirement 1"
+        }
+      }
+    },
+    {
+      "file": "Sample.reqif",
+      "source": "capella",
+      "size_kb": 6.71,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.13,
+      "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
         "name": "Requirement-1",
@@ -277,6 +335,7 @@
       "attachments_count": 0,
       "parse_time_ms": 1.06,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
         "name": "Requirement-1",
@@ -292,6 +351,65 @@
       }
     },
     {
+      "file": "Sample1.reqif",
+      "source": "capella",
+      "size_kb": 9.14,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.02,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
+        "name": "Requirement-1",
+        "last_change": "2017-11-14T15:44:26.000+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "IE PUID": "<div>PUID-1</div>",
+          "ReqIF.Text": "<div>Requirement-1</div>",
+          "IE Object Type": [
+            "_gXZ9oMk3Eee5A_N9aQFa1w"
+          ]
+        }
+      }
+    },
+    {
+      "file": "eclipse_ci_TC1000.reqif",
+      "source": "strictdoc",
+      "size_kb": 9.72,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.95,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1000_SpecHierarchy",
+        "name": "TC1000 SpecHierarchy",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1000 SpecObjectType",
+        "attributes": {
+          "TC1000T": "true",
+          "TC1000F": "false",
+          "TC1000 Integer": "5000",
+          "TC1000 String": "Plain",
+          "TC1000 Real": "1234.5",
+          "TC1000 Date": "2002-05-30T09:30:10.000+06:00",
+          "TC1000 Enum": [
+            "ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Yellow"
+          ],
+          "TC1000 Enum MultiValue": [
+            "ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Yellow",
+            "ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Red",
+            "ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Green"
+          ]
+        }
+      }
+    },
+    {
       "file": "requirements.reqif",
       "source": "openETCS",
       "size_kb": 10.35,
@@ -299,8 +417,9 @@
       "requirements_count": 4,
       "links_count": 3,
       "attachments_count": 0,
-      "parse_time_ms": 0.95,
+      "parse_time_ms": 0.97,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_R9CfVzu5EeOhCa-ASInFcQ",
         "name": "",
@@ -314,6 +433,27 @@
       }
     },
     {
+      "file": "eclipse_ci_TC1400.reqif",
+      "source": "strictdoc",
+      "size_kb": 10.4,
+      "success": true,
+      "requirements_count": 5,
+      "links_count": 4,
+      "attachments_count": 0,
+      "parse_time_ms": 0.95,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1400_SpecHierarchy1",
+        "name": "TC1400 SpecHierarchy 1",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1400 SpecObjectType Regular",
+        "attributes": {
+          "ReqIF.Name": "Obj1"
+        }
+      }
+    },
+    {
       "file": "polarion_sample.reqif",
       "source": "lutaml",
       "size_kb": 11.63,
@@ -321,8 +461,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.4,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.26,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -333,9 +474,75 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.07,
-      "error": "Parser returned None",
+      "parse_time_ms": 1.27,
+      "error": "strictdoc: ",
+      "error_level": "strictdoc",
       "sample_requirement": null
+    },
+    {
+      "file": "eclipse_ci_TC1800.reqif",
+      "source": "strictdoc",
+      "size_kb": 15.7,
+      "success": true,
+      "requirements_count": 6,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.76,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_RB77n1yxEeumRtWSJE-orw",
+        "name": "",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC18xx SpecObjectType",
+        "attributes": {
+          "ReqIF.Name": "<p>Obj-01</p>",
+          "A1": "no change",
+          "A2": "no change",
+          "E1": [
+            "_RB77ZlyxEeumRtWSJE-orw"
+          ]
+        }
+      }
+    },
+    {
+      "file": "sparx_ea_01.reqif",
+      "source": "strictdoc",
+      "size_kb": 15.72,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.29,
+      "error": "extraction: 'FUNC-REQ-1'",
+      "error_level": "extraction",
+      "sample_requirement": null
+    },
+    {
+      "file": "eclipse_ci_TC1801.reqif",
+      "source": "strictdoc",
+      "size_kb": 15.74,
+      "success": true,
+      "requirements_count": 6,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.85,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_RB77n1yxEeumRtWSJE-orw",
+        "name": "",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC18xx SpecObjectType",
+        "attributes": {
+          "ReqIF.Name": "<p>Obj-01</p>",
+          "A1": "no change",
+          "A2": "no change",
+          "E1": [
+            "_RB77ZlyxEeumRtWSJE-orw"
+          ]
+        }
+      }
     },
     {
       "file": "eclipse_rmf_json.reqif",
@@ -345,8 +552,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.33,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.39,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -357,8 +565,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 1.23,
-      "error": "Parser returned None",
+      "parse_time_ms": 1.48,
+      "error": "extraction: 'FUNC-REQ-1'",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -369,9 +578,35 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.36,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.34,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
+    },
+    {
+      "file": "eclipse_ci_TC1100.reqif",
+      "source": "strictdoc",
+      "size_kb": 17.79,
+      "success": true,
+      "requirements_count": 5,
+      "links_count": 3,
+      "attachments_count": 0,
+      "parse_time_ms": 1.67,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1100_SpecHierarchy1",
+        "name": "TC1100 SpecHierarchy 1",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1100 SpecObjectType",
+        "attributes": {
+          "ReqIF.ForeignID": "1",
+          "ReqIF.Name": "<p>Obj1</p>",
+          "ReqIF.ForeignCreatedBy": "Max Mustermann",
+          "ReqIF.ForeignCreatedOn": "2002-01-01T00:00:00.000Z",
+          "ReqIF.ForeignModifiedBy": "Jane Q. Public"
+        }
+      }
     },
     {
       "file": "sdoc_sample.reqif",
@@ -381,8 +616,44 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 0.35,
-      "error": "Parser returned None",
+      "parse_time_ms": 0.34,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
+      "sample_requirement": null
+    },
+    {
+      "file": "eclipse_ci_TC1200.reqif",
+      "source": "strictdoc",
+      "size_kb": 132.91,
+      "success": true,
+      "requirements_count": 44,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 20.02,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "ID_TC1200_SpecHierarchy_0",
+        "name": "",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1200 SpecObjectType",
+        "attributes": {
+          "TC1200 AttributeDefinitionString": "xhtml.p.type",
+          "TC1200 AttributeDefinitionXHTML": "<p style=\"text-decoration:underline\" title=\"text\">\n    text before br<br/>text after br\n    text before span<span>XhtmlSpanType</span>text after span\n    text before em<em>XhtmlEmType</em>text after em\n    text before strong<strong>XhtmlStrongType</strong>text after strong\n    text before dfn<dfn>XhtmlDfnType</dfn>text after dfn\n    text before code<code>XhtmlCodeType</code>text after code\n    text before samp<samp>XhtmlSampType</samp>text after samp\n    text before kbd<kbd>XhtmlKbdType</kbd>text after kbd\n    text before var<var>XhtmlVarType</var>text after var\n    text before cite<cite>XhtmlCiteType</cite>text after cite\n    text before abbr<abbr>XhtmlAbbrType</abbr>text after abbr\n    text before acronym<acronym>XhtmlAcronymType</acronym>text after acronym\n    text before q<q>XhtmlQType</q>text after q\n    text before tt<tt>XhtmlInlPresType</tt>text after tt\n    text before i<i>XhtmlInlPresType</i>text after i\n    text before b<b>XhtmlInlPresType</b>text after b\n    text before big<big>XhtmlInlPresType</big>text after big\n    text before small<small>XhtmlInlPresType</small>text after small\n    text before sub<sub>XhtmlInlPresType</sub>text after sub\n    text before sup<sup>XhtmlInlPresType</sup>text after sup\n    text before a<a>XhtmlAType</a>text after a\n    text before ins<ins>XhtmlEditType</ins>text after ins\n    text before del<del>XhtmlEditType</del>text after del</p>"
+        }
+      }
+    },
+    {
+      "file": "reqif_studio_01.reqif",
+      "source": "strictdoc",
+      "size_kb": 187.49,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 18.77,
+      "error": "extraction: '_B9RbAGunEeuNUYnTveUm8Q'",
+      "error_level": "extraction",
       "sample_requirement": null
     },
     {
@@ -393,8 +664,9 @@
       "requirements_count": 101,
       "links_count": 90,
       "attachments_count": 0,
-      "parse_time_ms": 17.03,
+      "parse_time_ms": 17.11,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "rmf-0b936943-97db-4cc4-92af-b56e113be2e5",
         "name": "aaa",
@@ -416,8 +688,9 @@
       "requirements_count": 43,
       "links_count": 32,
       "attachments_count": 0,
-      "parse_time_ms": 22.42,
+      "parse_time_ms": 18.57,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_088e7260-29bd-4772-8eea-e69a7d993653",
         "name": "",
@@ -441,8 +714,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 2.29,
-      "error": "Parser returned None",
+      "parse_time_ms": 1.46,
+      "error": "XML: comments before declaration",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -453,8 +727,9 @@
       "requirements_count": 3,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 23.43,
+      "parse_time_ms": 18.25,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_dd13030a-e3cf-4954-b10e-270d5a2c9dff",
         "name": "<div>Carbon Trust Standard</div>",
@@ -478,8 +753,9 @@
       "requirements_count": 62,
       "links_count": 61,
       "attachments_count": 0,
-      "parse_time_ms": 28.36,
+      "parse_time_ms": 31.87,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_1_singleton",
         "name": "",
@@ -511,8 +787,9 @@
       "requirements_count": 0,
       "links_count": 0,
       "attachments_count": 0,
-      "parse_time_ms": 50.07,
-      "error": "Parser returned None",
+      "parse_time_ms": 39.28,
+      "error": "XML: invalid root tag (RIF vs REQ-IF)",
+      "error_level": "strictdoc",
       "sample_requirement": null
     },
     {
@@ -523,8 +800,9 @@
       "requirements_count": 299,
       "links_count": 298,
       "attachments_count": 0,
-      "parse_time_ms": 194.55,
+      "parse_time_ms": 167.12,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_2_singleton",
         "name": "",
@@ -556,8 +834,9 @@
       "requirements_count": 1162,
       "links_count": 1161,
       "attachments_count": 0,
-      "parse_time_ms": 1144.72,
+      "parse_time_ms": 1099.11,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_R_singleton",
         "name": "",
@@ -589,8 +868,9 @@
       "requirements_count": 1392,
       "links_count": 1391,
       "attachments_count": 0,
-      "parse_time_ms": 1430.37,
+      "parse_time_ms": 1443.59,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_8_singleton",
         "name": "",
@@ -622,8 +902,9 @@
       "requirements_count": 1341,
       "links_count": 1340,
       "attachments_count": 0,
-      "parse_time_ms": 1594.59,
+      "parse_time_ms": 1588.1,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_5_singleton",
         "name": "",
@@ -655,8 +936,9 @@
       "requirements_count": 2411,
       "links_count": 2410,
       "attachments_count": 0,
-      "parse_time_ms": 4291.55,
+      "parse_time_ms": 4329.13,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_6_singleton",
         "name": "",
@@ -688,8 +970,9 @@
       "requirements_count": 3757,
       "links_count": 3755,
       "attachments_count": 0,
-      "parse_time_ms": 10809.35,
+      "parse_time_ms": 10790.2,
       "error": null,
+      "error_level": null,
       "sample_requirement": {
         "id": "_3_singleton",
         "name": "",
@@ -710,6 +993,74 @@
           "kind": [
             "_enumVal_Kind_HEADING"
           ]
+        }
+      }
+    },
+    {
+      "file": "chapter4.reqif",
+      "source": "etcs",
+      "size_kb": 30700.46,
+      "success": true,
+      "requirements_count": 6402,
+      "links_count": 6401,
+      "attachments_count": 0,
+      "parse_time_ms": 31325.0,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_4_singleton",
+        "name": "",
+        "last_change": "2015-12-10T23:56:14.738+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "requirementID": "4",
+          "ListNumberText": "",
+          "atomic": "true",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 4 Modes and Transitions</div>",
+          "implement": "false",
+          "PlainText": "System Requirements Specification Chapter 4 Modes and Transitions",
+          "WordTraceId": "16",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 4<br/>Modes and Transitions</span>\n    </b>\n  </p>\n</div>"
+        }
+      }
+    },
+    {
+      "file": "chapter7.reqif",
+      "source": "etcs",
+      "size_kb": 31485.44,
+      "success": true,
+      "requirements_count": 6742,
+      "links_count": 6741,
+      "attachments_count": 0,
+      "parse_time_ms": 35645.95,
+      "error": null,
+      "error_level": null,
+      "sample_requirement": {
+        "id": "_7_singleton",
+        "name": "",
+        "last_change": "2015-12-14T02:06:03.271+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "requirementID": "7",
+          "PlainText": "System Requirements Specification Chapter 7 ERTMS/ETCS language",
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 7<br/>ERTMS/ETCS language</span>\n    </b>\n  </p>\n</div>",
+          "WordTraceId": "16",
+          "atomic": "true",
+          "ListNumberText": "",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 7 <span style=\"font-family:monospace; font-style:italic;\">ERTMS</span>/<span style=\"font-family:monospace; font-style:italic;\">ETCS</span> language</div>",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "implement": "false"
         }
       }
     }

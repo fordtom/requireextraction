@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Test script to parse all collected ReqIF examples and generate a comparison report."""
+"""Test script to parse all collected ReqIF examples and generate a comparison report.
+
+Pipeline: ReqIF/ReqIFZ → strictdoc ReqIFParser → ReqIFBundle → Our extraction → JSON
+
+Failures can occur at:
+1. strictdoc parser level (XML errors, schema issues, assertion errors)
+2. Our extraction level (empty specifications, missing references)
+"""
 
 import json
 import sys
@@ -11,7 +18,8 @@ from typing import Optional
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from main import process_reqif_file, process_reqifz_file
+from reqif.parser import ReqIFParser, ReqIFZParser
+from reqif.models.error_handling import ReqIFXMLParsingError
 
 
 @dataclass
@@ -25,48 +33,114 @@ class ParseResult:
     attachments_count: int
     parse_time_ms: float
     error: Optional[str] = None
+    error_level: Optional[str] = None  # "strictdoc" or "extraction"
     sample_requirement: Optional[dict] = None
 
 
 def test_file(file_path: Path) -> ParseResult:
-    """Test parsing a single file and return results."""
+    """Test parsing a single file and return results.
+
+    Tests both strictdoc parsing and our extraction separately to identify failure level.
+    """
+    from main import extract_requirement
+
     source = file_path.parent.name
     size_kb = file_path.stat().st_size / 1024
-
     start_time = time.time()
 
+    # Step 1: Test strictdoc parsing
     try:
         if file_path.suffix.lower() == '.reqifz':
-            output_dir = file_path.parent / f"{file_path.stem}_test_output"
-            result = process_reqifz_file(str(file_path), str(output_dir))
-            attachments_count = len(result.get('attachments', [])) if result else 0
+            z_bundle = ReqIFZParser.parse(str(file_path))
+            bundles = list(z_bundle.reqif_bundles.values())
         else:
-            result = process_reqif_file(str(file_path))
-            attachments_count = 0
+            bundle = ReqIFParser.parse(str(file_path))
+            bundles = [bundle]
+    except (ReqIFXMLParsingError, Exception) as e:
+        parse_time_ms = (time.time() - start_time) * 1000
+        error_msg = str(e)
+        # Categorize strictdoc errors
+        if "XML declaration" in error_msg:
+            error_type = "XML: comments before declaration"
+        elif "Expected root tag" in error_msg:
+            error_type = "XML: invalid root tag (RIF vs REQ-IF)"
+        elif "AssertionError" in error_msg or "assert" in error_msg.lower():
+            error_type = "strictdoc assertion error"
+        else:
+            error_type = f"strictdoc: {error_msg[:50]}"
+        return ParseResult(
+            file=file_path.name,
+            source=source,
+            size_kb=round(size_kb, 2),
+            success=False,
+            requirements_count=0,
+            links_count=0,
+            attachments_count=0,
+            parse_time_ms=round(parse_time_ms, 2),
+            error=error_type,
+            error_level="strictdoc"
+        )
+
+    # Step 2: Test our extraction
+    try:
+        all_requirements = []
+        all_links = []
+        attachments_count = 0
+
+        for bundle in bundles:
+            if bundle.core_content is None or bundle.core_content.req_if_content is None:
+                continue
+
+            specs = bundle.core_content.req_if_content.specifications
+            if specs is None:
+                # File parsed but has no specifications
+                continue
+
+            for specification in specs:
+                node_map = {}
+                parent_map = {}
+
+                def collect_nodes(node, parent_id=None):
+                    node_map[node.identifier] = node
+                    if parent_id:
+                        parent_map[node.identifier] = parent_id
+                    if node.children:
+                        for child in node.children:
+                            collect_nodes(child, node.identifier)
+
+                for root_node in bundle.iterate_specification_hierarchy(specification):
+                    collect_nodes(root_node)
+
+                for node_id, node in node_map.items():
+                    req = extract_requirement(bundle, node)
+                    if req:
+                        all_requirements.append(req)
+
+                for child_id, parent_id in parent_map.items():
+                    all_links.append({
+                        "source": parent_id,
+                        "type": "hierarchy",
+                        "target": child_id,
+                    })
+
+        # Handle reqifz attachments
+        if file_path.suffix.lower() == '.reqifz' and hasattr(z_bundle, 'attachments') and z_bundle.attachments:
+            attachments_count = len([a for a in z_bundle.attachments.values() if a])
 
         parse_time_ms = (time.time() - start_time) * 1000
 
-        if result:
-            requirements = result.get('requirements', [])
-            links = result.get('links', [])
-
-            # Get first requirement as sample
-            sample = None
-            if requirements:
-                sample = requirements[0]
-
-            return ParseResult(
-                file=file_path.name,
-                source=source,
-                size_kb=round(size_kb, 2),
-                success=True,
-                requirements_count=len(requirements),
-                links_count=len(links),
-                attachments_count=attachments_count,
-                parse_time_ms=round(parse_time_ms, 2),
-                sample_requirement=sample
+        if len(all_requirements) == 0 and len(bundles) > 0:
+            # Parsed successfully but no requirements extracted
+            # Check if there were any spec objects at all
+            has_spec_objects = any(
+                b.core_content and b.core_content.req_if_content and
+                b.core_content.req_if_content.spec_objects
+                for b in bundles
             )
-        else:
+            if has_spec_objects:
+                error = "extraction: spec objects exist but no specifications/hierarchy"
+            else:
+                error = "extraction: no spec objects in file"
             return ParseResult(
                 file=file_path.name,
                 source=source,
@@ -74,10 +148,25 @@ def test_file(file_path: Path) -> ParseResult:
                 success=False,
                 requirements_count=0,
                 links_count=0,
-                attachments_count=0,
+                attachments_count=attachments_count,
                 parse_time_ms=round(parse_time_ms, 2),
-                error="Parser returned None"
+                error=error,
+                error_level="extraction"
             )
+
+        sample = all_requirements[0] if all_requirements else None
+
+        return ParseResult(
+            file=file_path.name,
+            source=source,
+            size_kb=round(size_kb, 2),
+            success=True,
+            requirements_count=len(all_requirements),
+            links_count=len(all_links),
+            attachments_count=attachments_count,
+            parse_time_ms=round(parse_time_ms, 2),
+            sample_requirement=sample
+        )
 
     except Exception as e:
         parse_time_ms = (time.time() - start_time) * 1000
@@ -90,7 +179,8 @@ def test_file(file_path: Path) -> ParseResult:
             links_count=0,
             attachments_count=0,
             parse_time_ms=round(parse_time_ms, 2),
-            error=str(e)
+            error=f"extraction: {str(e)[:50]}",
+            error_level="extraction"
         )
 
 
@@ -157,12 +247,21 @@ def main():
     for source, stats in sorted(sources.items()):
         print(f"  {source}: {stats['success']}/{stats['success']+stats['fail']} files, {stats['reqs']} requirements")
 
-    # Failed files
+    # Failed files by level
     if fail_count > 0:
-        print("\n" + "-" * 40)
-        print("FAILED FILES:")
-        for r in results:
-            if not r.success:
+        strictdoc_fails = [r for r in results if not r.success and r.error_level == "strictdoc"]
+        extraction_fails = [r for r in results if not r.success and r.error_level == "extraction"]
+
+        if strictdoc_fails:
+            print("\n" + "-" * 40)
+            print(f"STRICTDOC PARSER FAILURES ({len(strictdoc_fails)}):")
+            for r in strictdoc_fails:
+                print(f"  - {r.source}/{r.file}: {r.error}")
+
+        if extraction_fails:
+            print("\n" + "-" * 40)
+            print(f"EXTRACTION FAILURES ({len(extraction_fails)}):")
+            for r in extraction_fails:
                 print(f"  - {r.source}/{r.file}: {r.error}")
 
     # Save detailed report
