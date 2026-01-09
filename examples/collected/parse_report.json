@@ -1,0 +1,717 @@
+{
+  "summary": {
+    "total_files": 33,
+    "successful": 18,
+    "failed": 15,
+    "total_requirements": 10587,
+    "total_links": 10544
+  },
+  "by_source": {
+    "lutaml": {
+      "success": 1,
+      "fail": 8,
+      "reqs": 1
+    },
+    "strictdoc": {
+      "success": 5,
+      "fail": 4,
+      "reqs": 110
+    },
+    "capella": {
+      "success": 4,
+      "fail": 1,
+      "reqs": 48
+    },
+    "openETCS": {
+      "success": 1,
+      "fail": 0,
+      "reqs": 4
+    },
+    "enterprise_architect": {
+      "success": 0,
+      "fail": 1,
+      "reqs": 0
+    },
+    "etcs": {
+      "success": 7,
+      "fail": 0,
+      "reqs": 10424
+    },
+    "automotive": {
+      "success": 0,
+      "fail": 1,
+      "reqs": 0
+    }
+  },
+  "results": [
+    {
+      "file": "minimal.reqif",
+      "source": "lutaml",
+      "size_kb": 0.24,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.47,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "input.reqifz",
+      "source": "strictdoc",
+      "size_kb": 1.79,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 2,
+      "parse_time_ms": 4.34,
+      "error": null,
+      "sample_requirement": {
+        "id": "ID_TC1700_SpecHierarchy1",
+        "name": "TC1700 SpecHierarchy1",
+        "last_change": "2012-04-07T01:51:37.112+02:00",
+        "type": "TC1700 SpecObjectType",
+        "attributes": {
+          "TC1000 String": "Requirement 1"
+        },
+        "source_file": "sample.reqif"
+      }
+    },
+    {
+      "file": "doors_05.reqif",
+      "source": "strictdoc",
+      "size_kb": 2.4,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.83,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "polarion_reqifz.reqifz",
+      "source": "lutaml",
+      "size_kb": 2.4,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 1,
+      "attachments_count": 0,
+      "parse_time_ms": 1.49,
+      "error": null,
+      "sample_requirement": {
+        "id": "rmf-0c4d996f-31e9-41d5-bbf0-73c13fc68f3c",
+        "name": "SW: Lorem Ipsum",
+        "last_change": "2021-07-01T01:12:06.078Z",
+        "type": "System Requirement",
+        "attributes": {
+          "ReqIF.ForeignCreatedBy": "redacted@mail.com",
+          "ReqIF.ForeignID": "LOREM-818",
+          "Status": [
+            "rmf-9515c994-87fa-4dff-b66b-ad407bcffbf5"
+          ],
+          "ReqIF.ForeignCreatedOn": "2023-03-15T10:46:58.611Z",
+          "ReqIF.ChapterName": "SW: Lorem Ipsum",
+          "ReqIF.Text": "<div>The Lorem Ipsum shall do something.</div>"
+        },
+        "source_file": "sample1_polarion.reqif"
+      }
+    },
+    {
+      "file": "doors_06.reqif",
+      "source": "strictdoc",
+      "size_kb": 4.45,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.93,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "doors_04.reqif",
+      "source": "strictdoc",
+      "size_kb": 4.71,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.76,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "doors_sample_small.reqif",
+      "source": "strictdoc",
+      "size_kb": 4.89,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.2,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "rmf_02.reqif",
+      "source": "strictdoc",
+      "size_kb": 4.94,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 1,
+      "attachments_count": 0,
+      "parse_time_ms": 0.94,
+      "error": null,
+      "sample_requirement": {
+        "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
+        "name": "Requirements document structure",
+        "last_change": "2005-05-31T10:58:13+02:00",
+        "type": "Example SpecType",
+        "attributes": {
+          "Author": "Max Mustermann",
+          "Age": "2"
+        }
+      }
+    },
+    {
+      "file": "eclipse_rmf_sample.reqif",
+      "source": "lutaml",
+      "size_kb": 5.1,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.3,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "rmf_01.reqif",
+      "source": "strictdoc",
+      "size_kb": 5.52,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 1,
+      "attachments_count": 0,
+      "parse_time_ms": 0.71,
+      "error": null,
+      "sample_requirement": {
+        "id": "3dd45190-59d1-11da-a4bd-f3b1a51212c8",
+        "name": "Requirements document structure",
+        "last_change": "2005-05-31T10:58:13+02:00",
+        "type": "Example SpecType",
+        "attributes": {
+          "Author": "Max Mustermann",
+          "Age": "2"
+        }
+      }
+    },
+    {
+      "file": "eclipse_rmf_specRelationTest.reqif",
+      "source": "lutaml",
+      "size_kb": 5.66,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.28,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "Sample.reqif",
+      "source": "capella",
+      "size_kb": 6.71,
+      "success": true,
+      "requirements_count": 1,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.87,
+      "error": null,
+      "sample_requirement": {
+        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
+        "name": "Requirement-1",
+        "last_change": "2017-11-14T15:44:26.000+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "IE PUID": "<div>PUID-1</div>",
+          "ReqIF.Text": "<div>Requirement-1</div>",
+          "IE Object Type": [
+            "_gXZ9oMk3Eee5A_N9aQFa1w"
+          ]
+        }
+      }
+    },
+    {
+      "file": "Sample1.reqif",
+      "source": "capella",
+      "size_kb": 9.14,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.06,
+      "error": null,
+      "sample_requirement": {
+        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
+        "name": "Requirement-1",
+        "last_change": "2017-11-14T15:44:26.000+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "IE PUID": "<div>PUID-1</div>",
+          "ReqIF.Text": "<div>Requirement-1</div>",
+          "IE Object Type": [
+            "_gXZ9oMk3Eee5A_N9aQFa1w"
+          ]
+        }
+      }
+    },
+    {
+      "file": "Sample2.reqif",
+      "source": "capella",
+      "size_kb": 9.14,
+      "success": true,
+      "requirements_count": 2,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.06,
+      "error": null,
+      "sample_requirement": {
+        "id": "_Ob6YgMkjEee8KsfWrp9EJQ",
+        "name": "Requirement-1",
+        "last_change": "2017-11-14T15:44:26.000+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "IE PUID": "<div>PUID-1</div>",
+          "ReqIF.Text": "<div>Requirement-1</div>",
+          "IE Object Type": [
+            "_gXZ9oMk3Eee5A_N9aQFa1w"
+          ]
+        }
+      }
+    },
+    {
+      "file": "requirements.reqif",
+      "source": "openETCS",
+      "size_kb": 10.35,
+      "success": true,
+      "requirements_count": 4,
+      "links_count": 3,
+      "attachments_count": 0,
+      "parse_time_ms": 0.95,
+      "error": null,
+      "sample_requirement": {
+        "id": "_R9CfVzu5EeOhCa-ASInFcQ",
+        "name": "",
+        "last_change": "2013-10-23T10:01:11.109+02:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "Description": "Part 3.6.6 of Subset-026-3",
+          "ID": "Geographical position reporting",
+          "Subset26Reference": "3.6.6"
+        }
+      }
+    },
+    {
+      "file": "polarion_sample.reqif",
+      "source": "lutaml",
+      "size_kb": 11.63,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.4,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "Sample3.reqif",
+      "source": "capella",
+      "size_kb": 12.46,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.07,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "eclipse_rmf_json.reqif",
+      "source": "lutaml",
+      "size_kb": 15.84,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.33,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "example.reqif.xml",
+      "source": "enterprise_architect",
+      "size_kb": 16.02,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 1.23,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "ea_example.reqif",
+      "source": "lutaml",
+      "size_kb": 16.13,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.36,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "sdoc_sample.reqif",
+      "source": "lutaml",
+      "size_kb": 22.65,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 0.35,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "polarion_01.reqif",
+      "source": "strictdoc",
+      "size_kb": 202.75,
+      "success": true,
+      "requirements_count": 101,
+      "links_count": 90,
+      "attachments_count": 0,
+      "parse_time_ms": 17.03,
+      "error": null,
+      "sample_requirement": {
+        "id": "rmf-0b936943-97db-4cc4-92af-b56e113be2e5",
+        "name": "aaa",
+        "last_change": "2022-02-01T08:22:23.609-08:00",
+        "type": "Heading",
+        "attributes": {
+          "ReqIF.ChapterName": "aaa",
+          "ReqIF.ForeignCreatedBy": "aaa",
+          "ReqIF.ForeignID": "aaa",
+          "ReqIF.ForeignCreatedOn": "aaa"
+        }
+      }
+    },
+    {
+      "file": "model1.reqif",
+      "source": "capella",
+      "size_kb": 215.56,
+      "success": true,
+      "requirements_count": 43,
+      "links_count": 32,
+      "attachments_count": 0,
+      "parse_time_ms": 22.42,
+      "error": null,
+      "sample_requirement": {
+        "id": "_088e7260-29bd-4772-8eea-e69a7d993653",
+        "name": "",
+        "last_change": "2016-04-05T13:43:01.000+02:00",
+        "type": null,
+        "attributes": {
+          "ReqIF.ForeignID": "37",
+          "ReqIF.ForeignCreatedBy": "<div>26483be0</div>",
+          "ReqIF.ForeignCreatedOn": "2012-07-12T00:00:00.000+02:00",
+          "ReqIF.ForeignModifiedBy": "<div>aa76d8cd</div>",
+          "ReqIF.ForeignModifiedOn": "2012-07-12T00:00:00.000+02:00",
+          "ReqIF.ForeignDeleted": "true"
+        }
+      }
+    },
+    {
+      "file": "antcc_MAG8000.reqif",
+      "source": "lutaml",
+      "size_kb": 244.17,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 2.29,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "doors_sample_large.reqif",
+      "source": "strictdoc",
+      "size_kb": 279.97,
+      "success": true,
+      "requirements_count": 3,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 23.43,
+      "error": null,
+      "sample_requirement": {
+        "id": "_dd13030a-e3cf-4954-b10e-270d5a2c9dff",
+        "name": "<div>Carbon Trust Standard</div>",
+        "last_change": "2018-10-12T16:43:58",
+        "type": null,
+        "attributes": {
+          "ReqIF.ForeignID": "1",
+          "ReqIF.ForeignCreatedBy": "<div>susan</div>",
+          "ReqIF.ForeignCreatedOn": "2011-07-01T00:00:00",
+          "ReqIF.ForeignModifiedBy": "<div>susan</div>",
+          "ReqIF.ForeignModifiedOn": "2011-07-01T00:00:00",
+          "ReqIF.ChapterName": "<div>Carbon Trust Standard</div>"
+        }
+      }
+    },
+    {
+      "file": "chapter1.reqif",
+      "source": "etcs",
+      "size_kb": 310.17,
+      "success": true,
+      "requirements_count": 62,
+      "links_count": 61,
+      "attachments_count": 0,
+      "parse_time_ms": 28.36,
+      "error": null,
+      "sample_requirement": {
+        "id": "_1_singleton",
+        "name": "",
+        "last_change": "2015-12-10T23:45:07.087+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "requirementID": "1",
+          "PlainText": "System Requirements Specification  Chapter 1  Introduction",
+          "implementerEnhanced": "<div>System Requirements Specification  Chapter 1  Introduction</div>",
+          "ListNumberText": "",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification </span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 1</span>\n      <span style=\"font-family:Arial; font-size:18pt;\"> </span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Introduction</span>\n    </b>\n  </p>\n</div>",
+          "WordTraceId": "16",
+          "atomic": "true",
+          "implement": "false"
+        }
+      }
+    },
+    {
+      "file": "ReqIF-Server_Auszug_20.xml",
+      "source": "automotive",
+      "size_kb": 610.33,
+      "success": false,
+      "requirements_count": 0,
+      "links_count": 0,
+      "attachments_count": 0,
+      "parse_time_ms": 50.07,
+      "error": "Parser returned None",
+      "sample_requirement": null
+    },
+    {
+      "file": "chapter2.reqif",
+      "source": "etcs",
+      "size_kb": 1372.87,
+      "success": true,
+      "requirements_count": 299,
+      "links_count": 298,
+      "attachments_count": 0,
+      "parse_time_ms": 194.55,
+      "error": null,
+      "sample_requirement": {
+        "id": "_2_singleton",
+        "name": "",
+        "last_change": "2015-12-10T23:47:41.199+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "requirementID": "2",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 2<br/>Basic System Description</span>\n    </b>\n  </p>\n</div>",
+          "WordTraceId": "16",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 2 Basic System Description</div>",
+          "implement": "false",
+          "PlainText": "System Requirements Specification Chapter 2 Basic System Description",
+          "atomic": "true",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "ListNumberText": ""
+        }
+      }
+    },
+    {
+      "file": "subset23.reqif",
+      "source": "etcs",
+      "size_kb": 5419.62,
+      "success": true,
+      "requirements_count": 1162,
+      "links_count": 1161,
+      "attachments_count": 0,
+      "parse_time_ms": 1144.72,
+      "error": null,
+      "sample_requirement": {
+        "id": "_R_singleton",
+        "name": "",
+        "last_change": "2015-12-15T01:40:09.956+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "WordTraceId": "16",
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">Glossary of Terms and Abbreviations</span>\n    </b>\n  </p>\n</div>",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "implementerEnhanced": "<div>Glossary of Terms and Abbreviations</div>",
+          "requirementID": "R",
+          "implement": "false",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "ListNumberText": "",
+          "PlainText": "Glossary of Terms and Abbreviations",
+          "atomic": "true"
+        }
+      }
+    },
+    {
+      "file": "chapter8.reqif",
+      "source": "etcs",
+      "size_kb": 6320.36,
+      "success": true,
+      "requirements_count": 1392,
+      "links_count": 1391,
+      "attachments_count": 0,
+      "parse_time_ms": 1430.37,
+      "error": null,
+      "sample_requirement": {
+        "id": "_8_singleton",
+        "name": "",
+        "last_change": "2015-12-11T00:02:44.183+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "implement": "false",
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 8<br/>Messages</span>\n    </b>\n  </p>\n</div>",
+          "ListNumberText": "",
+          "atomic": "true",
+          "requirementID": "8",
+          "PlainText": "System Requirements Specification Chapter 8 Messages",
+          "WordTraceId": "16",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 8 Messages</div>"
+        }
+      }
+    },
+    {
+      "file": "chapter5.reqif",
+      "source": "etcs",
+      "size_kb": 6961.69,
+      "success": true,
+      "requirements_count": 1341,
+      "links_count": 1340,
+      "attachments_count": 0,
+      "parse_time_ms": 1594.59,
+      "error": null,
+      "sample_requirement": {
+        "id": "_5_singleton",
+        "name": "",
+        "last_change": "2015-12-10T23:58:42.756+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "ListNumberText": "",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "WordTraceId": "16",
+          "PlainText": "System Requirements Specification Chapter 5 Procedures",
+          "atomic": "true",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 5 Procedures</div>",
+          "requirementID": "5",
+          "implement": "false",
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 5<br/>Procedures</span>\n    </b>\n  </p>\n</div>"
+        }
+      }
+    },
+    {
+      "file": "chapter6.reqif",
+      "source": "etcs",
+      "size_kb": 11403.98,
+      "success": true,
+      "requirements_count": 2411,
+      "links_count": 2410,
+      "attachments_count": 0,
+      "parse_time_ms": 4291.55,
+      "error": null,
+      "sample_requirement": {
+        "id": "_6_singleton",
+        "name": "",
+        "last_change": "2015-12-11T00:00:14.868+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "PlainText": "System Requirements Specification Chapter 6 Management of older System Versions",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ],
+          "implement": "false",
+          "requirementID": "6",
+          "ListNumberText": "",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 6 Management of older System Versions</div>",
+          "WordTraceId": "16",
+          "atomic": "true",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification</span>\n      <span style=\"font-family:Arial; font-size:14pt;\">Chapter 6Management of older System Versions</span>\n    </b>\n  </p>\n</div>"
+        }
+      }
+    },
+    {
+      "file": "chapter3.reqif",
+      "source": "etcs",
+      "size_kb": 17793.9,
+      "success": true,
+      "requirements_count": 3757,
+      "links_count": 3755,
+      "attachments_count": 0,
+      "parse_time_ms": 10809.35,
+      "error": null,
+      "sample_requirement": {
+        "id": "_3_singleton",
+        "name": "",
+        "last_change": "2015-12-14T02:04:51.856+01:00",
+        "type": "Requirement Type",
+        "attributes": {
+          "WordTraceId": "16",
+          "atomic": "true",
+          "RichText": "<div>\n  <p style=\"display:block; text-align:center;\">\n    <b>\n      <span style=\"font-family:Arial; font-size:18pt;\">System Requirements Specification<br/>Chapter 3<br/>Principles</span>\n    </b>\n  </p>\n</div>",
+          "Legal Obligation": [
+            "_enumVal_LegalObligation_UNKNOWN"
+          ],
+          "PlainText": "System Requirements Specification Chapter 3 Principles",
+          "implement": "false",
+          "implementerEnhanced": "<div>System Requirements Specification Chapter 3 Principles</div>",
+          "ListNumberText": "",
+          "requirementID": "3",
+          "kind": [
+            "_enumVal_Kind_HEADING"
+          ]
+        }
+      }
+    }
+  ]
+}
